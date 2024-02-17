@@ -1,8 +1,11 @@
 {
-  "name": "remix-image",
+  "name": "@sebasgarcep/remix-image-core",
   "version": "1.4.0",
   "description": "A React component for responsive images in Remix",
-  "author": "Josh McFarlin <josh@mcfarl.in>",
+  "authors": [
+    "Josh McFarlin <josh@mcfarl.in>",
+    "Sebastian Garrido <sebasgarcep@gmail.com>"
+  ],
   "license": "MIT",
   "sideEffects": false,
   "keywords": [

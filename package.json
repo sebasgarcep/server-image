@@ -1,6 +1,9 @@
 {
-  "name": "remix-image-monorepo",
-  "author": "Josh McFarlin <josh@mcfarl.in>",
+  "name": "@sebasgarcep/remix-image-monorepo",
+  "authors": [
+    "Josh McFarlin <josh@mcfarl.in>",
+    "Sebastian Garrido <sebasgarcep@gmail.com>"
+  ],
   "license": "MIT",
   "private": true,
   "homepage": "https://remix-image.mcfarl.in",
