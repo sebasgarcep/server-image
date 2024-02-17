@@ -1,28 +1,44 @@
 {
-  "name": "@sebasgarcep/remix-image-transformer-sharp",
-  "version": "0.1.4",
-  "description": "A Sharp transformer for remix-image",
+  "name": "@sebasgarcep/server-image-core",
+  "version": "1.4.0",
+  "description": "A React component for responsive images in Remix",
   "authors": [
     "Josh McFarlin <josh@mcfarl.in>",
     "Sebastian Garrido <sebasgarcep@gmail.com>"
   ],
   "license": "MIT",
   "sideEffects": false,
+  "keywords": [
+    "react",
+    "remix",
+    "image",
+    "responsive"
+  ],
   "homepage": "https://remix-image.mcfarl.in",
   "repository": {
     "type": "git",
     "url": "https://github.com/sebasgarcep/remix-image.git",
-    "directory": "packages/remix-image-sharp"
+    "directory": "packages/remix-image"
   },
   "bugs": {
     "url": "https://github.com/sebasgarcep/remix-image/issues"
   },
   "main": "build/index.js",
   "types": "build/index.d.ts",
+  "style": "remix-image.css",
+  "exports": {
+    ".": "./build/index.js",
+    "./server": "./build/server/index.js",
+    "./serverPure": "./build/server/pure.js",
+    "./remix-image.css": "./remix-image.css"
+  },
   "files": [
     "build",
     "package.json",
-    "README.md"
+    "README.md",
+    "server.d.ts",
+    "serverPure.d.ts",
+    "remix-image.css"
   ],
   "scripts": {
     "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,css,scss}\"",
@@ -35,13 +51,17 @@
     "watch": "rollup -c -w --bundleConfigAsCjs",
     "release": "dotenv release-it --"
   },
-  "devDependencies": {
-    "@types/sharp": "^0.31.0",
-    "sharp": "^0.31.0"
+  "dependencies": {
+    "clsx": "^1.2.1",
+    "is-svg": "^4.3.2",
+    "js-image-lib": "^1.0.1",
+    "lru-cache": "^7.14.0",
+    "query-string": "^7.1.3"
   },
   "peerDependencies": {
-    "remix": "^1.0.0",
-    "remix-image": "^1.0.0",
-    "sharp": "^0.31.0"
+    "@cloudflare/kv-asset-handler": "^0.2.0",
+    "react": ">=16.8.0",
+    "react-dom": ">=16.8.0",
+    "remix": "^1.0.0"
   }
 }
