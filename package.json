@@ -20,15 +20,14 @@
     "*.{js,jsx,ts,tsx,json,css,scss}": "prettier --write"
   },
   "scripts": {
-    "setup-repo": "node scripts/delete-node-packages.js && npm i && husky install && cd docs && npm i",
+    "setup-repo": "node scripts/delete-node-packages.js && npm i && cd docs && npm i",
     "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,css,scss}\"",
     "lint": "eslint --fix --ext ts --ext tsx --ext js --ext jsx .",
     "typecheck": "tsc --project tsconfig.json --noEmit",
     "test": "jest --passWithNoTests",
     "test:watch": "jest --watch",
     "commit": "git-cz",
-    "update-docs": "npm run deploy --prefix docs",
-    "prepare": "husky install"
+    "update-docs": "npm run deploy --prefix docs"
   },
   "dependencies": {
     "@babel/core": "^7.17.8",
@@ -41,7 +40,6 @@
     "@commitlint/config-conventional": "^17.3.0",
     "@commitlint/cz-commitlint": "^17.3.0",
     "@commitlint/prompt-cli": "^17.3.0",
-    "@next-boost/hybrid-disk-cache": "^0.3.0",
     "@release-it/bumper": "^4.0.0",
     "@release-it/keep-a-changelog": "^3.1.0",
     "@rollup/plugin-commonjs": "^23.0.4",
@@ -75,7 +73,6 @@
     "eslint-plugin-react-hooks": "^4.3.0",
     "fs-extra": "^11.1.0",
     "html-webpack-plugin": "^5.5.0",
-    "husky": "^8.0.2",
     "identity-obj-proxy": "^3.0.0",
     "jest": "^29.3.1",
     "jest-environment-jsdom": "^29.3.1",
