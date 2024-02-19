@@ -1,6 +1,6 @@
 {
   "name": "@sebasgarcep/server-image-cache-memory",
-  "version": "0.1.1",
+  "version": "0.0.1",
   "description": "In-memory cache for server-image",
   "authors": [
     "Josh McFarlin <josh@mcfarl.in>",
@@ -44,7 +44,7 @@
     "release": "dotenv release-it --"
   },
   "dependencies": {
-    "@sebasgarcep/server-image-core": "^0.1.1",
+    "@sebasgarcep/server-image-core": "^0.0.1",
     "lru-cache": "^10.2.0"
   }
 }
