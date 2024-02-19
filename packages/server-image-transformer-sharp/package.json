@@ -39,5 +39,8 @@
   },
   "peerDependencies": {
     "sharp": "^0.33.2"
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }

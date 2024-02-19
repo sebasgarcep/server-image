@@ -49,5 +49,8 @@
   },
   "devDependencies": {
     "@types/node": "^20.11.19"
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }
