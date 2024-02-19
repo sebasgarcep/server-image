@@ -23,7 +23,7 @@ export const remixHandler: RemixHandler = async (config, request) => {
     }
 
     const decodedQuery = decodeTransformQuery(reqUrl.search);
-    const { outputContentType, data: resultImg } = await imageTransformationHandler(config, {
+    const { contentType, data: resultImg } = await imageTransformationHandler(config, {
       transform: decodedQuery,
       src,
       cacheKey,
@@ -32,7 +32,7 @@ export const remixHandler: RemixHandler = async (config, request) => {
     return imageResponse(
       resultImg,
       200,
-      outputContentType,
+      contentType,
       cache
         ? `private, max-age=${cache.config.ttl}, max-stale=${cache.config.tbd}`
         : `public, max-age=${60 * 60 * 24 * 365}`,

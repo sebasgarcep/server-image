@@ -178,7 +178,7 @@ export const imageTransformationHandler: ImageTransformationHandler = async (
   }
 
   return {
-    outputContentType,
+    contentType: outputContentType,
     data: resultImg,
   };
 };

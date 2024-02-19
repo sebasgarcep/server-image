@@ -45,7 +45,7 @@ export interface HandlerRequest {
 
 export interface HandlerResult {
   /* Type of generated asset */
-  outputContentType: MimeType;
+  contentType: MimeType;
   /* Generated asset binary data */
   data: Uint8Array;
 }
