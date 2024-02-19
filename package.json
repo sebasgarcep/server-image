@@ -17,19 +17,12 @@
   "workspaces": [
     "packages/*"
   ],
-  "lint-staged": {
-    "*.{ts,tsx,js,jsx}": "eslint --cache --fix",
-    "*.{js,jsx,ts,tsx,json,css,scss}": "prettier --write"
-  },
   "scripts": {
     "build": "npm run build --workspaces",
-    "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,css,scss}\"",
-    "lint": "eslint --fix --ext ts --ext tsx --ext js --ext jsx .",
-    "typecheck": "tsc --project tsconfig.json --noEmit",
-    "test": "jest --passWithNoTests",
-    "test:watch": "jest --watch",
-    "commit": "git-cz",
-    "update-docs": "npm run deploy --prefix docs"
+    "format": "npm run format --workspaces",
+    "lint": "npm run lint --workspaces",
+    "typecheck": "npm run typecheck --workspaces",
+    "test": "jest --passWithNoTests"
   },
   "devDependencies": {
     "@release-it/bumper": "^4.0.0",
