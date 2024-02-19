@@ -1,12 +1,10 @@
-import { ClientLoader } from "../types/client";
-import { ImagePosition } from "../types/transformer";
+import { ClientLoader, ImagePosition } from "@sebasgarcep/server-image-core";
 
 const normalizeSrc = (src: string) => {
   return src.startsWith("/") ? src.slice(1) : src;
 };
 
-const numberToHex = (num: number): string =>
-  ("0" + Number(num).toString(16)).slice(-2).toUpperCase();
+const numberToHex = (num: number): string => ("0" + Number(num).toString(16)).slice(-2).toUpperCase();
 
 const positionMap: Record<ImagePosition, string> = {
   "center bottom": "south",
@@ -25,11 +23,7 @@ const positionMap: Record<ImagePosition, string> = {
   top: "north",
 };
 
-export const cloudinaryImageLoader: ClientLoader = (
-  src,
-  loaderUrl,
-  loaderOptions
-) => {
+export const cloudinaryImageLoader: ClientLoader = (src, loaderUrl, loaderOptions) => {
   const params = [];
 
   if (loaderOptions.background) {
@@ -39,7 +33,7 @@ export const cloudinaryImageLoader: ClientLoader = (
         numberToHex(loaderOptions.background[1]) +
         numberToHex(loaderOptions.background[2]) +
         numberToHex(loaderOptions.background[3])
-      }`
+      }`,
     );
   }
 
@@ -92,18 +86,13 @@ export const cloudinaryImageLoader: ClientLoader = (
   }
 
   if (loaderOptions.position) {
-    params.push(
-      `g_${positionMap[loaderOptions.position as ImagePosition] || "center"}`
-    );
+    params.push(`g_${positionMap[loaderOptions.position as ImagePosition] || "center"}`);
   }
 
   params.push(`q_${loaderOptions.quality || "auto"}`);
 
   if (loaderOptions.contentType) {
-    params.push(
-      "f_",
-      loaderOptions.contentType.replace("image/", "").replace("jpeg", "jpg")
-    );
+    params.push("f_", loaderOptions.contentType.replace("image/", "").replace("jpeg", "jpg"));
   } else {
     params.push("f_auto");
   }
