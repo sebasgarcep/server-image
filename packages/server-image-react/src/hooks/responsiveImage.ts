@@ -1,8 +1,7 @@
 import * as React from "react";
-import { remixImageLoader } from "../loaders";
-import { ClientLoader } from "../types/client";
-import type { ResponsiveSize } from "../types/image";
-import type { SizelessOptions } from "../types/transformer";
+import type { ClientLoader, SizelessOptions } from "@sebasgarcep/server-image-core";
+
+import type { ResponsiveSize } from "../types";
 
 export type ImageSource = {
   src?: string;
@@ -18,9 +17,7 @@ const sizeComparator = (resp1: ResponsiveSize, resp2: ResponsiveSize): number =>
   (resp1.maxWidth || Infinity) - (resp2.maxWidth || Infinity);
 
 const sizeConverter = (resp: ResponsiveSize): string =>
-  resp.maxWidth
-    ? `(max-width: ${resp.maxWidth}px) ${resp.size.width}px`
-    : `${resp.size.width}px`;
+  resp.maxWidth ? `(max-width: ${resp.maxWidth}px) ${resp.size.width}px` : `${resp.size.width}px`;
 
 export function useResponsiveImage(
   image: ImageSource,
@@ -28,30 +25,21 @@ export function useResponsiveImage(
   options: SizelessOptions = {},
   dprVariants: number | number[] = [1],
   loaderUrl = "/api/image",
-  loader: ClientLoader = remixImageLoader
+  loader: ClientLoader,
 ): ResponsiveHookResult {
   return React.useMemo<ResponsiveHookResult>(() => {
     let largestSrc = image.src || "";
     let largestWidth = 0;
     const srcSet: string[] = [];
     const multipliers = Array.from(
-      new Set<number>([
-        1,
-        ...(typeof dprVariants === "number" ? [dprVariants] : dprVariants),
-      ])
+      new Set<number>([1, ...(typeof dprVariants === "number" ? [dprVariants] : dprVariants)]),
     ).sort();
 
     for (const multiplier of multipliers) {
       for (const { size } of responsive) {
         const srcSetUrl = loader(image.src || "", loaderUrl, {
-          width:
-            typeof size.width === "number"
-              ? size.width * multiplier
-              : size.width,
-          height:
-            typeof size.height === "number"
-              ? size.height * multiplier
-              : size.height,
+          width: typeof size.width === "number" ? size.width * multiplier : size.width,
+          height: typeof size.height === "number" ? size.height * multiplier : size.height,
           fit: "cover",
           position: "center",
           background: [0x00, 0x00, 0x00, 0x00],

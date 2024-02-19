@@ -1,4 +1,4 @@
-import { ResponsiveSize } from "../../types";
+import { ResponsiveSize } from "../types";
 import { OnLoadingComplete } from "./types";
 
 export type ImgElementWithDataProp = HTMLImageElement & {
@@ -7,7 +7,7 @@ export type ImgElementWithDataProp = HTMLImageElement & {
 
 export function computePlaceholderSize(
   sizes: ResponsiveSize[] = [],
-  aspectRatio: number | null
+  aspectRatio: number | null,
 ): {
   width: number;
   height: number;
@@ -40,7 +40,7 @@ export function computePlaceholderSize(
 export function handleLoading(
   img: ImgElementWithDataProp,
   src: string,
-  onLoadingComplete: OnLoadingComplete | null | undefined
+  onLoadingComplete: OnLoadingComplete | null | undefined,
 ): void {
   if (!img || img["data-loaded-src"] === src) {
     return;

@@ -1,14 +1,13 @@
 import * as React from "react";
-import { ClientLoader, ResponsiveSize, SizelessOptions } from "../../types";
+import { ClientLoader, SizelessOptions } from "@sebasgarcep/server-image-core";
 
-export type OnLoadingComplete = (result: {
-  naturalWidth: number;
-  naturalHeight: number;
-}) => void;
+import { ResponsiveSize } from "../types";
+
+export type OnLoadingComplete = (result: { naturalWidth: number; naturalHeight: number }) => void;
 
 export interface BaseImageProps extends React.ComponentPropsWithRef<"img"> {
   loaderUrl?: string;
-  loader?: ClientLoader;
+  loader: ClientLoader;
   responsive?: ResponsiveSize[];
   options?: SizelessOptions;
   dprVariants?: number | number[];

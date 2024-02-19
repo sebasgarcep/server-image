@@ -1,12 +1,7 @@
 import clsx from "clsx";
 import * as React from "react";
-import { useResponsiveImage } from "../../hooks";
-import { remixImageLoader } from "../../loaders";
-import {
-  ImgElementWithDataProp,
-  computePlaceholderSize,
-  handleLoading,
-} from "./helpers";
+import { useResponsiveImage } from "../hooks";
+import { ImgElementWithDataProp, computePlaceholderSize, handleLoading } from "./helpers";
 import { ImageProps } from "./types";
 
 export const Image = React.memo<ImageProps>(
@@ -15,7 +10,7 @@ export const Image = React.memo<ImageProps>(
       {
         src,
         loaderUrl = "/api/image",
-        loader = remixImageLoader,
+        loader,
         responsive = [],
         options = {},
         dprVariants = 1,
@@ -39,24 +34,14 @@ export const Image = React.memo<ImageProps>(
         onLoad,
         ...imgProps
       }: ImageProps,
-      ref
+      ref,
     ) => {
-      const responsiveProps = useResponsiveImage(
-        { src },
-        responsive,
-        options,
-        dprVariants,
-        loaderUrl,
-        loader
-      );
+      const responsiveProps = useResponsiveImage({ src }, responsive, options, dprVariants, loaderUrl, loader);
 
       const imageStyle = React.useMemo<React.CSSProperties>(() => {
         if (unoptimized) return style;
 
-        const placeholderSize = computePlaceholderSize(
-          responsive,
-          placeholderAspectRatio
-        );
+        const placeholderSize = computePlaceholderSize(responsive, placeholderAspectRatio);
 
         return {
           minWidth: placeholderSize.width,
@@ -68,15 +53,7 @@ export const Image = React.memo<ImageProps>(
           }),
           ...style,
         };
-      }, [
-        unoptimized,
-        responsive,
-        placeholderAspectRatio,
-        style,
-        options?.fit,
-        options?.position,
-        blurDataURL,
-      ]);
+      }, [unoptimized, responsive, placeholderAspectRatio, style, options?.fit, options?.position, blurDataURL]);
 
       return (
         <img
@@ -95,14 +72,12 @@ export const Image = React.memo<ImageProps>(
                   if (typeof ref === "function") {
                     ref(img);
                   } else {
-                    (
-                      ref as React.MutableRefObject<HTMLImageElement | null>
-                    ).current = img;
+                    (ref as React.MutableRefObject<HTMLImageElement | null>).current = img;
                   }
                 }
               }
             },
-            [unoptimized, ref, src, placeholder, onLoadingComplete]
+            [unoptimized, ref, src, placeholder, onLoadingComplete],
           )}
           decoding={decoding}
           loading={loading}
@@ -110,7 +85,7 @@ export const Image = React.memo<ImageProps>(
           className={clsx(
             !unoptimized && "remix-image",
             !unoptimized && placeholder === "blur" && "blur-in",
-            className
+            className,
           )}
           {...imgProps}
           {...responsiveProps}
@@ -125,8 +100,8 @@ export const Image = React.memo<ImageProps>(
           }}
         />
       );
-    }
-  )
+    },
+  ),
 );
 
 Image.displayName = "Image";

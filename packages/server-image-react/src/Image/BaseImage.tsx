@@ -1,13 +1,12 @@
 import * as React from "react";
 import { useResponsiveImage } from "../hooks";
-import { remixImageLoader } from "../../loaders";
 import { BaseImageProps } from "./types";
 
 export const BaseImage = React.forwardRef<HTMLImageElement, BaseImageProps>(
   (
     {
       loaderUrl = "/api/image",
-      loader = remixImageLoader,
+      loader,
       responsive = [],
       options = {},
       dprVariants = 1,
@@ -15,27 +14,12 @@ export const BaseImage = React.forwardRef<HTMLImageElement, BaseImageProps>(
       loading = "lazy",
       ...imgProps
     },
-    ref
+    ref,
   ) => {
-    const responsiveProps = useResponsiveImage(
-      imgProps,
-      responsive,
-      options,
-      dprVariants,
-      loaderUrl,
-      loader
-    );
+    const responsiveProps = useResponsiveImage(imgProps, responsive, options, dprVariants, loaderUrl, loader);
 
-    return (
-      <img
-        ref={ref}
-        decoding={decoding}
-        loading={loading}
-        {...imgProps}
-        {...responsiveProps}
-      />
-    );
-  }
+    return <img ref={ref} decoding={decoding} loading={loading} {...imgProps} {...responsiveProps} />;
+  },
 );
 
 BaseImage.displayName = "BaseImage";
