@@ -1,25 +1,18 @@
-import type { Cache } from "./cache";
-import type { MimeType } from "./file";
-import type { Resolver } from "./resolver";
-import type { SizelessOptions, Transformer } from "./transformer";
+import type { Cache, MimeType, Resolver, SizelessOptions, Transformer } from "@sebasgarcep/server-image-core";
 
 export interface HandlerConfig {
   /** The URL for this Remix server. */
   selfUrl: string;
-  /** A resolver function that handles retrieving image assets. (optional, default fetchResolver) */
-  resolver?: Resolver;
-  /** A transformer function that handles mutations of images. If this option is null, transformation will be skipped. (optional, default pureTransformer) */
-  transformer?: Transformer | null;
-  /** If RemixImage should fallback to the fallback mime type if the output type is not supported. (optional, default true) */
-  useFallbackFormat?: boolean;
+  /** A resolver function that handles retrieving image assets. */
+  resolver: Resolver;
+  /** A transformer function that handles mutations of images. If this option is null, transformation will be skipped. */
+  transformer: Transformer | null;
   /** The output mime type the image should fallback to if the provided output type is not supported. (optional, default MimeType.JPEG) */
   fallbackFormat?: MimeType;
-  /** If RemixImage should fallback to the fallback transformer if custom transformer fails. (optional, default true) */
-  useFallbackTransformer?: boolean;
-  /** The transformer the loader should use if the provided custom transformer fails. (optional, default pureTransformer) */
+  /** The transformer the loader should use if the provided custom transformer fails. */
   fallbackTransformer?: Transformer;
   /** A cache to store computed RemixImage transformations. (optional) */
-  cache?: Cache | null;
+  cache?: Cache;
   /** Default TransformOptions to use, can be overridden by the client. (optional) */
   defaultOptions?: SizelessOptions;
   /** Redirect image to original source if RemixImage fails. (optional, default false) */
@@ -36,7 +29,4 @@ export interface HandlerConfig {
   verbose?: boolean;
 }
 
-export type ImageTransformationHandler = (
-  config: HandlerConfig,
-  request: Request
-) => Promise<Response>;
+export type ImageTransformationHandler = (config: HandlerConfig, request: Request) => Promise<Response>;

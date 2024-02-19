@@ -1,26 +1,24 @@
 import mimeFromBuffer from "mime-tree";
-import { MimeType, TransformOptions, UnsupportedImageError } from "../../types";
-import { RemixImageError } from "../../types/error";
 import {
-  imageResponse,
-  textResponse,
-  redirectResponse,
-} from "./utils";
-import { decodeQuery, decodeTransformQuery, parseURL } from "../../utils/url";
-import { fetchResolver } from "../resolvers/fetchResolver";
-import { pureTransformer } from "../transformers";
+  MimeType,
+  RemixImageError,
+  TransformOptions,
+  UnsupportedImageError,
+  decodeQuery,
+  decodeTransformQuery,
+  parseURL,
+} from "@sebasgarcep/server-image-core";
+import { imageResponse, textResponse, redirectResponse } from "./utils";
 import { ImageTransformationHandler } from "./types";
 
 export const imageTransformationHandler: ImageTransformationHandler = async (
   {
     selfUrl,
     cache = null,
-    resolver = fetchResolver,
-    transformer = pureTransformer,
-    useFallbackFormat = true,
+    resolver,
+    transformer,
     fallbackFormat,
-    useFallbackTransformer = true,
-    fallbackTransformer = pureTransformer,
+    fallbackTransformer,
     defaultOptions = {},
     redirectOnFail = false,
     skipFormats = new Set([MimeType.SVG]),
@@ -29,17 +27,14 @@ export const imageTransformationHandler: ImageTransformationHandler = async (
     blacklistedDomains = null,
     verbose = false,
   },
-  request
+  request,
 ) => {
   const reqUrl = parseURL(request.url);
   let src: string | null = null;
 
   try {
     if (!selfUrl) {
-      throw new RemixImageError(
-        "selfUrl is required in RemixImage loader config!",
-        500
-      );
+      throw new RemixImageError("selfUrl is required in RemixImage loader config!", 500);
     }
 
     let selfUrlObj;
@@ -48,9 +43,7 @@ export const imageTransformationHandler: ImageTransformationHandler = async (
     } catch (error) {
       throw new RemixImageError("selfUrl is not a valid URL!");
     }
-    const whitelist = whitelistedDomains
-      ? new Set([...whitelistedDomains, selfUrlObj.host])
-      : null;
+    const whitelist = whitelistedDomains ? new Set([...whitelistedDomains, selfUrlObj.host]) : null;
     const blacklist = blacklistedDomains ? new Set(blacklistedDomains) : null;
 
     src = decodeQuery(reqUrl.searchParams, "src");
@@ -119,25 +112,16 @@ export const imageTransformationHandler: ImageTransformationHandler = async (
 
     if (!loadedImg) {
       if (whitelist && !whitelist.has(assetUrl.host)) {
-        throw new RemixImageError(
-          "The requested image host is not included on the whitelist!"
-        );
+        throw new RemixImageError("The requested image host is not included on the whitelist!");
       }
       if (blacklist && blacklist.has(assetUrl.host)) {
         throw new RemixImageError("The requested image host is not allowed!");
       }
 
-      const res = await resolver(
-        src,
-        assetUrl.toString(),
-        transformOptions,
-        basePath
-      );
+      const res = await resolver(src, assetUrl.toString(), transformOptions, basePath);
 
       if (verbose) {
-        console.log(
-          `Fetched image [${cacheKey}] directly using resolver: ${resolver.name}.`
-        );
+        console.log(`Fetched image [${cacheKey}] directly using resolver: ${resolver.name}.`);
       }
 
       isNewImage = true;
@@ -162,34 +146,28 @@ export const imageTransformationHandler: ImageTransformationHandler = async (
 
       if (!transformer.supportedInputs.has(inputContentType)) {
         if (
-          useFallbackTransformer &&
+          fallbackTransformer !== undefined &&
           transformer !== fallbackTransformer &&
           fallbackTransformer.supportedInputs.has(inputContentType)
         ) {
           console.error(
-            `Transformer does not allow this input content type: ${inputContentType}! Falling back to transformer: ${fallbackTransformer.name}`
+            `Transformer does not allow this input content type: ${inputContentType}! Falling back to transformer: ${fallbackTransformer.name}`,
           );
           curTransformer = fallbackTransformer;
         } else {
-          throw new UnsupportedImageError(
-            `Transformer does not allow this input content type: ${inputContentType}!`
-          );
+          throw new UnsupportedImageError(`Transformer does not allow this input content type: ${inputContentType}!`);
         }
       }
 
       if (!curTransformer.supportedOutputs.has(outputContentType)) {
-        if (
-          useFallbackFormat &&
-          fallbackFormat != null &&
-          curTransformer.supportedOutputs.has(fallbackFormat)
-        ) {
+        if (fallbackFormat !== undefined && curTransformer.supportedOutputs.has(fallbackFormat)) {
           console.error(
-            `Transformer does not allow this output content type: ${outputContentType}! Falling back to mime type: ${fallbackFormat}`
+            `Transformer does not allow this output content type: ${outputContentType}! Falling back to mime type: ${fallbackFormat}`,
           );
           outputContentType = fallbackFormat;
         } else {
           console.error(
-            `Transformer does not allow this output content type: ${outputContentType}! Falling back to mime type: ${curTransformer.fallbackOutput}`
+            `Transformer does not allow this output content type: ${outputContentType}! Falling back to mime type: ${curTransformer.fallbackOutput}`,
           );
           outputContentType = curTransformer.fallbackOutput;
         }
@@ -204,13 +182,11 @@ export const imageTransformationHandler: ImageTransformationHandler = async (
         {
           ...transformOptions,
           contentType: outputContentType!,
-        }
+        },
       );
 
       if (verbose) {
-        console.log(
-          `Successfully transformed image using transformer: ${curTransformer.name}`
-        );
+        console.log(`Successfully transformed image using transformer: ${curTransformer.name}`);
       }
     }
 
@@ -228,9 +204,9 @@ export const imageTransformationHandler: ImageTransformationHandler = async (
       outputContentType,
       cache
         ? `private, max-age=${cache.config.ttl}, max-stale=${cache.config.tbd}`
-        : `public, max-age=${60 * 60 * 24 * 365}`
+        : `public, max-age=${60 * 60 * 24 * 365}`,
     );
-  } catch (error: any) {
+  } catch (error: unknown) {
     if (typeof process !== "undefined" && process?.env?.NODE_ENV === "test") {
       throw error;
     }

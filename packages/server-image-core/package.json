@@ -1,7 +1,7 @@
 {
   "name": "@sebasgarcep/server-image-core",
   "version": "0.1.0",
-  "description": "A React component for responsive images in Remix",
+  "description": "Core interfaces and utils for server-image",
   "authors": [
     "Josh McFarlin <josh@mcfarl.in>",
     "Sebastian Garrido <sebasgarcep@gmail.com>"
@@ -23,13 +23,13 @@
   "bugs": {
     "url": "https://github.com/sebasgarcep/server-image/issues"
   },
-  "main": "build/index.js",
-  "types": "build/index.d.ts",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "exports": {
-    ".": "./build/index.js"
+    ".": "./dist/index.js"
   },
   "files": [
-    "build",
+    "dist",
     "package.json",
     "README.md"
   ],

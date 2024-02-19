@@ -3,12 +3,7 @@ export const textResponse = (status: number, message = ""): Response =>
     status,
   });
 
-export const imageResponse = (
-  file: Uint8Array,
-  status: number,
-  contentType: string,
-  cacheControl: string
-): Response =>
+export const imageResponse = (file: Uint8Array, status: number, contentType: string, cacheControl: string): Response =>
   new Response(file, {
     status,
     headers: {
