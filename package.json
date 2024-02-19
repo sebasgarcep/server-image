@@ -33,6 +33,7 @@
   ],
   "scripts": {
     "build": "npm run build --workspaces",
+    "clean": "npm run clean --workspaces",
     "format": "npm run format --workspaces",
     "lint": "npm run lint --workspaces",
     "typecheck": "npm run typecheck --workspaces",
