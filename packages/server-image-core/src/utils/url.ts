@@ -2,16 +2,12 @@ import qs from "query-string";
 import { RemixImageError } from "../types/error";
 import type { TransformOptions } from "../types/transformer";
 
-export const decodeQuery = (
-  queryParams: URLSearchParams,
-  key: string
-): string | null =>
+export const decodeQuery = (queryParams: URLSearchParams, key: string): string | null =>
+  // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
   queryParams.has(key) ? decodeURIComponent(queryParams.get(key)!) : null;
 
-export const encodeQuery = (
-  url: string,
-  query: Record<string, any>
-): string => {
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export const encodeQuery = (url: string, query: Record<string, any>): string => {
   const fixedQuery = query;
 
   if (Object.prototype.hasOwnProperty.call(query, "crop")) {
@@ -27,13 +23,11 @@ export const encodeQuery = (
       skipNull: true,
       arrayFormat: "bracket",
       sort: false,
-    }
+    },
   );
 };
 
-export const decodeTransformQuery = (
-  queryString: string
-): Partial<TransformOptions> => {
+export const decodeTransformQuery = (queryString: string): Partial<TransformOptions> => {
   const parsed = qs.parse(queryString, {
     arrayFormat: "bracket",
     parseNumbers: true,
@@ -41,10 +35,7 @@ export const decodeTransformQuery = (
     sort: false,
   });
 
-  if (
-    Object.prototype.hasOwnProperty.call(parsed, "crop") &&
-    parsed.crop != null
-  ) {
+  if (Object.prototype.hasOwnProperty.call(parsed, "crop") && parsed.crop != null) {
     parsed.crop = JSON.parse(parsed.crop as string);
   }
 
