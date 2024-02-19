@@ -1,7 +1,7 @@
 {
-  "name": "@sebasgarcep/server-image-resolver-fs",
+  "name": "@sebasgarcep/server-image-resolver-cfkv",
   "version": "0.1.0",
-  "description": "Asset resolver using the local file system.",
+  "description": "Asset resolver using Cloudflare's key-value asset resolver.",
   "authors": [
     "Josh McFarlin <josh@mcfarl.in>",
     "Sebastian Garrido <sebasgarcep@gmail.com>"
@@ -43,6 +43,7 @@
     "release": "dotenv release-it --"
   },
   "dependencies": {
+    "@cloudflare/kv-asset-handler": "^0.3.1",
     "@sebasgarcep/server-image-core": "^0.1.0",
     "mime-tree": "^0.1.4"
   }

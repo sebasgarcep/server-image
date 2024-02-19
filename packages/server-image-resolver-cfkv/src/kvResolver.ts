@@ -2,8 +2,7 @@ import type { Options as KvAssetHandlerOptions } from "@cloudflare/kv-asset-hand
 import { getAssetFromKV, NotFoundError } from "@cloudflare/kv-asset-handler";
 import isSvg from "is-svg";
 import mimeFromBuffer from "mime-tree";
-import { MimeType, RemixImageError, UnsupportedImageError } from "../../types";
-import type { Resolver } from "../../types/resolver";
+import { MimeType, RemixImageError, Resolver, UnsupportedImageError } from "@sebasgarcep/server-image-core";
 
 export interface FetchEvent {
   request: Request;
@@ -12,14 +11,8 @@ export interface FetchEvent {
 
 const noOp = async () => {};
 
-const handleAsset = (
-  event: FetchEvent,
-  options?: Partial<KvAssetHandlerOptions>
-): Promise<Response> => {
-  if (
-    typeof process !== "undefined" &&
-    process?.env?.NODE_ENV === "development"
-  ) {
+const handleAsset = (event: FetchEvent, options?: Partial<KvAssetHandlerOptions>): Promise<Response> => {
+  if (typeof process !== "undefined" && process?.env?.NODE_ENV === "development") {
     return getAssetFromKV(event, {
       cacheControl: {
         bypassCache: true,
@@ -79,6 +72,6 @@ export const kvResolver: Resolver = async (_asset, url) => {
 
   return {
     buffer,
-    contentType,
+    contentType: contentType as unknown as MimeType,
   };
 };
