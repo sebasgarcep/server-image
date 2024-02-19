@@ -5,7 +5,7 @@ export type Resolver = (
   asset: string,
   url: string,
   options: TransformOptions,
-  basePath: string
+  basePath: string,
 ) => Promise<{
   buffer: Uint8Array;
   contentType: MimeType;
