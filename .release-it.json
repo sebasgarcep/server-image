@@ -2,5 +2,12 @@
   "plugins": {
     "@release-it-plugins/workspaces": true
   },
-  "npm": false
+  "git": {
+    "commit": false,
+    "tag": false,
+    "push": false
+  },
+  "npm": {
+    "publish": false
+  }
 }
