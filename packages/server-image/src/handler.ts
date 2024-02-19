@@ -1,11 +1,5 @@
 import mimeFromBuffer from "mime-tree";
-import {
-  MimeType,
-  RemixImageError,
-  TransformOptions,
-  UnsupportedImageError,
-  parseURL,
-} from "server-image-core";
+import { MimeType, RemixImageError, TransformOptions, UnsupportedImageError, parseURL } from "server-image-core";
 import { ImageTransformationHandler } from "./types";
 
 export const imageTransformationHandler: ImageTransformationHandler = async (
