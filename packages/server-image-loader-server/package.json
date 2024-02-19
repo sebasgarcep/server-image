@@ -1,6 +1,6 @@
 {
   "name": "@sebasgarcep/server-image-loader-server",
-  "version": "0.0.2",
+  "version": "0.1.0",
   "description": "Client loader for server-image's image transformation service.",
   "authors": [
     "Josh McFarlin <josh@mcfarl.in>",
@@ -44,6 +44,6 @@
     "release": "dotenv release-it --"
   },
   "dependencies": {
-    "@sebasgarcep/server-image-core": "^0.0.2"
+    "@sebasgarcep/server-image-core": "^0.1.0"
   }
 }
