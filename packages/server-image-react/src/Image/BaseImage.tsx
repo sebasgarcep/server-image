@@ -1,5 +1,5 @@
 import * as React from "react";
-import { useResponsiveImage } from "../../hooks";
+import { useResponsiveImage } from "../hooks";
 import { remixImageLoader } from "../../loaders";
 import { BaseImageProps } from "./types";
 

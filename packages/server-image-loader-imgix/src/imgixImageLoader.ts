@@ -7,7 +7,7 @@ const normalizeSrc = (src: string) => {
 const numberToHex = (num: number): string =>
   ("0" + Number(num).toString(16)).slice(-2).toUpperCase();
 
-export const imgixLoader: ClientLoader = (src, loaderUrl, loaderOptions) => {
+export const imgixImageLoader: ClientLoader = (src, loaderUrl, loaderOptions) => {
   const url = new URL(`${loaderUrl}${normalizeSrc(src)}`);
   const params = url.searchParams;
 

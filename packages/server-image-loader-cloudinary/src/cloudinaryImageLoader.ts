@@ -25,7 +25,7 @@ const positionMap: Record<ImagePosition, string> = {
   top: "north",
 };
 
-export const cloudinaryLoader: ClientLoader = (
+export const cloudinaryImageLoader: ClientLoader = (
   src,
   loaderUrl,
   loaderOptions

@@ -1,7 +1,7 @@
 import { ClientLoader } from "../types/client";
 import { encodeQuery } from "../utils/url";
 
-export const remixImageLoader: ClientLoader = (
+export const serverImageLoader: ClientLoader = (
   src,
   loaderUrl,
   loaderOptions
