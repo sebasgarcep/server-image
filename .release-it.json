@@ -1,5 +1,11 @@
 {
   "plugins": {
+    "@release-it/bumper": {
+      "in": {
+        "file": "package.json",
+        "path": "version"
+      }
+    },
     "@release-it-plugins/workspaces": {
       "publish": false
     }
