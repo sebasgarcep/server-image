@@ -45,5 +45,8 @@
   "dependencies": {
     "@sebasgarcep/server-image-core": "^0.1.0",
     "mime-tree": "^0.1.4"
+  },
+  "devDependencies": {
+    "@types/node": "^20.11.19"
   }
 }
