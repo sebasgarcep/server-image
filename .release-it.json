@@ -1,6 +1,8 @@
 {
   "plugins": {
-    "@release-it-plugins/workspaces": true
+    "@release-it-plugins/workspaces": {
+      "publish": false
+    }
   },
   "git": {
     "commit": true,
