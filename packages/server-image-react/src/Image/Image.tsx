@@ -1,3 +1,5 @@
+import "../remix-image.css";
+
 import clsx from "clsx";
 import * as React from "react";
 import { useResponsiveImage } from "../hooks";
