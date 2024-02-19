@@ -9,14 +9,13 @@
   "homepage": "https://remix-image.mcfarl.in",
   "repository": {
     "type": "git",
-    "url": "https://github.com/Josh-McFarlin/remix-image.git"
+    "url": "https://github.com/sebasgarcep/server-image.git"
   },
   "bugs": {
-    "url": "https://github.com/Josh-McFarlin/remix-image/issues"
+    "url": "https://github.com/sebasgarcep/server-image/issues"
   },
   "workspaces": [
-    "packages/*",
-    "examples/*"
+    "packages/*"
   ],
   "lint-staged": {
     "*.{ts,tsx,js,jsx}": "eslint --cache --fix",
@@ -63,6 +62,6 @@
     "typescript": "^5.3.3"
   },
   "engines": {
-    "node": ">=16"
+    "node": ">=18"
   }
 }

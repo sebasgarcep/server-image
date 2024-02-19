@@ -1,4 +1,4 @@
-import { MimeType, Transformer } from "remix-image";
+import { MimeType, Transformer } from "@sebasgarcep/server-image-core";
 import sharp from "sharp";
 
 export const supportedInputs = new Set([
@@ -41,7 +41,7 @@ export const sharpTransformer: Transformer = {
       rotate,
       flip,
       crop,
-    }
+    },
   ) => {
     const fixedBackground = {
       r: background[0],
