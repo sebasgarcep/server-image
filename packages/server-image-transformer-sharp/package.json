@@ -32,7 +32,6 @@
     "typecheck": "tsc --noEmit",
     "test": "jest -c=../../jest.config.js --passWithNoTests",
     "test:watch": "jest -c=../../jest.config.js --watch",
-    "prebuild": "rimraf coverage build tmp",
     "release": "dotenv release-it --"
   },
   "dependencies": {
