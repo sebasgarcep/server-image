@@ -211,7 +211,12 @@ export const imageTransformationHandler: ImageTransformationHandler = async (
       throw error;
     }
 
-    console.error("RemixImage loader error:", error?.message);
+    let message = "";
+    if (error instanceof Error) {
+      message = error.message;
+    }
+
+    console.error("RemixImage loader error:", message);
     console.error(error);
 
     if (redirectOnFail && src) {
