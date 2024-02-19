@@ -45,6 +45,7 @@
   },
   "dependencies": {
     "@sebasgarcep/server-image-core": "^0.1.0",
+    "is-svg": "^5.0.0",
     "mime-tree": "^0.1.4"
   }
 }
