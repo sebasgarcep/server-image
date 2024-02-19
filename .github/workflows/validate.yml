@@ -25,5 +25,8 @@ jobs:
       - name: Install dependencies
         run: npm install
 
+      - name: Build packages
+        run: npm run build
+
       - name: Run validations
         run: npm run validate

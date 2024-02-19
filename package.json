@@ -40,7 +40,7 @@
     "typecheck": "npm run typecheck --workspaces",
     "test": "jest --passWithNoTests",
     "publish": "release-it --config .release-it.publish.json --ci",
-    "validate": "npm run build && run-p lint typecheck"
+    "validate": "run-p lint typecheck"
   },
   "devDependencies": {
     "@release-it-plugins/workspaces": "^4.2.0",
