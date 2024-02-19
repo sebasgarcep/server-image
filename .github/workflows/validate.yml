@@ -4,9 +4,10 @@ on:
   push:
     branches:
       - master
-  pull_requests:
+  pull_request:
     branches:
       - master
+    types: ['opened', 'edited', 'reopened', 'synchronize']
 
 jobs:
   validate:
