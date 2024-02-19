@@ -1,6 +1,6 @@
 {
   "name": "server-image-transformer-sharp",
-  "version": "0.1.1",
+  "version": "0.1.3",
   "description": "A Sharp transformer for server-image",
   "authors": [
     "Josh McFarlin <josh@mcfarl.in>",
@@ -35,7 +35,7 @@
     "release": "dotenv release-it --"
   },
   "dependencies": {
-    "server-image-core": "^0.1.1"
+    "server-image-core": "^0.1.3"
   },
   "peerDependencies": {
     "sharp": "^0.33.2"
