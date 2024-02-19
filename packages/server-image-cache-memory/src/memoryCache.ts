@@ -1,5 +1,5 @@
-import LRU from "lru-cache";
-import { Cache, CacheConfig, CacheStatus } from "../../types/cache";
+import { LRUCache } from "lru-cache";
+import { Cache, CacheConfig, CacheStatus } from "@sebasgarcep/server-image-core";
 import { mB } from "./utils";
 
 export interface MemoryCacheConfig extends CacheConfig {
@@ -11,7 +11,7 @@ export interface MemoryCacheConfig extends CacheConfig {
 
 export class MemoryCache extends Cache {
   config: MemoryCacheConfig;
-  cache: LRU<string, Uint8Array>;
+  cache: LRUCache<string, Uint8Array>;
 
   constructor(config: Partial<MemoryCacheConfig> | null | undefined = {}) {
     super();
@@ -22,7 +22,7 @@ export class MemoryCache extends Cache {
       tbd: config?.tbd ?? 365 * 24 * 60 * 60,
     };
 
-    this.cache = new LRU<string, Uint8Array>({
+    this.cache = new LRUCache<string, Uint8Array>({
       ttl: this.config.ttl,
       allowStale: true,
       updateAgeOnGet: true,
