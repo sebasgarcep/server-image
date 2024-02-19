@@ -1,4 +1,4 @@
-import { ClientLoader } from "@sebasgarcep/server-image-core";
+import { ClientLoader } from "server-image-core";
 
 const normalizeSrc = (src: string) => {
   return src.startsWith("/") ? src.slice(1) : src;

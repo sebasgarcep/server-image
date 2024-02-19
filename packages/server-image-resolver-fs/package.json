@@ -1,5 +1,5 @@
 {
-  "name": "@sebasgarcep/server-image-resolver-fs",
+  "name": "server-image-resolver-fs",
   "version": "0.1.0",
   "description": "Asset resolver using the local file system.",
   "authors": [
@@ -44,7 +44,7 @@
     "release": "dotenv release-it --"
   },
   "dependencies": {
-    "@sebasgarcep/server-image-core": "^0.1.0",
+    "server-image-core": "^0.1.0",
     "is-svg": "^5.0.0",
     "mime-tree": "^0.1.4"
   },

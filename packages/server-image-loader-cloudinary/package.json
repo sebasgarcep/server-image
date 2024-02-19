@@ -1,5 +1,5 @@
 {
-  "name": "@sebasgarcep/server-image-loader-cloudinary",
+  "name": "server-image-loader-cloudinary",
   "version": "0.1.0",
   "description": "Client loader for cloudinary's image transformation service.",
   "authors": [
@@ -44,7 +44,7 @@
     "release": "dotenv release-it --"
   },
   "dependencies": {
-    "@sebasgarcep/server-image-core": "^0.1.0"
+    "server-image-core": "^0.1.0"
   },
   "publishConfig": {
     "access": "public"

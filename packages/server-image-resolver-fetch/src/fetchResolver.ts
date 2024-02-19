@@ -1,4 +1,4 @@
-import { MimeType, RemixImageError, Resolver } from "@sebasgarcep/server-image-core";
+import { MimeType, RemixImageError, Resolver } from "server-image-core";
 
 export const fetchResolver: Resolver = async (_asset, url) => {
   const imgRequest = new Request(url, {

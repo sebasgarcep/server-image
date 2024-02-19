@@ -5,7 +5,7 @@ import type {
   SizelessOptions,
   TransformOptions,
   Transformer,
-} from "@sebasgarcep/server-image-core";
+} from "server-image-core";
 
 export interface HandlerConfig {
   /** The URL for this Remix server. */

@@ -1,5 +1,5 @@
 import { LRUCache } from "lru-cache";
-import { Cache, CacheConfig, CacheStatus } from "@sebasgarcep/server-image-core";
+import { Cache, CacheConfig, CacheStatus } from "server-image-core";
 import { mB } from "./utils";
 
 export interface MemoryCacheConfig extends CacheConfig {

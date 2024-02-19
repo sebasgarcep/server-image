@@ -2,7 +2,7 @@ import type { Options as KvAssetHandlerOptions } from "@cloudflare/kv-asset-hand
 import { getAssetFromKV, NotFoundError } from "@cloudflare/kv-asset-handler";
 import isSvg from "is-svg";
 import mimeFromBuffer from "mime-tree";
-import { MimeType, RemixImageError, Resolver, UnsupportedImageError } from "@sebasgarcep/server-image-core";
+import { MimeType, RemixImageError, Resolver, UnsupportedImageError } from "server-image-core";
 
 export interface FetchEvent {
   request: Request;

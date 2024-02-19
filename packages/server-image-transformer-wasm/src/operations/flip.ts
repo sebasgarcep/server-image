@@ -1,4 +1,4 @@
-import { FlipDirection } from "@sebasgarcep/server-image-core";
+import { FlipDirection } from "server-image-core";
 import ImageData from "../types/ImageData";
 
 export const flipImage = async (src: ImageData, direction: FlipDirection): Promise<ImageData> => {

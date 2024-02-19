@@ -1,5 +1,5 @@
 {
-  "name": "@sebasgarcep/server-image-core",
+  "name": "server-image-core",
   "version": "0.1.0",
   "description": "Core interfaces and utils for server-image",
   "authors": [

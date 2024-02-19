@@ -1,4 +1,4 @@
-import { Color } from "@sebasgarcep/server-image-core";
+import { Color } from "server-image-core";
 import ImageData from "../types/ImageData";
 
 const createTranslationFunction = (deltaX: number, deltaY: number) => (x: number, y: number) => ({

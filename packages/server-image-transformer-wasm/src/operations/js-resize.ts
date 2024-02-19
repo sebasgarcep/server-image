@@ -20,7 +20,7 @@
  * THE SOFTWARE.
  */
 
-import { Color, ImageFit, ImagePosition } from "@sebasgarcep/server-image-core";
+import { Color, ImageFit, ImagePosition } from "server-image-core";
 import ImageData from "../types/ImageData";
 import { getFrameDimensions, getImageDimensions } from "../utils/sizing";
 

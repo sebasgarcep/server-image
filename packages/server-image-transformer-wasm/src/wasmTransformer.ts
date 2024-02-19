@@ -1,4 +1,4 @@
-import { ImagePosition, MimeType, Transformer } from "@sebasgarcep/server-image-core";
+import { ImagePosition, MimeType, Transformer } from "server-image-core";
 import { AvifHandler, WebpHandler, JpegHandler, PngHandler } from "./handlers";
 import { blurImage } from "./operations/blur";
 import { cropImage } from "./operations/crop";

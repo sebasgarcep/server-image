@@ -1,5 +1,5 @@
 import ImageTransformer, { supportedInputs, supportedOutputs } from "js-image-lib";
-import { ImagePosition, MimeType, Transformer } from "@sebasgarcep/server-image-core";
+import { ImagePosition, MimeType, Transformer } from "server-image-core";
 
 export const pureTransformer: Transformer = {
   name: "pureTransformer",

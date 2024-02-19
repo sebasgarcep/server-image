@@ -1,4 +1,4 @@
-import { MimeType, Transformer } from "@sebasgarcep/server-image-core";
+import { MimeType, Transformer } from "server-image-core";
 import sharp from "sharp";
 
 export const supportedInputs = new Set([

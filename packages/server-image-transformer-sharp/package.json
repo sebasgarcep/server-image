@@ -1,5 +1,5 @@
 {
-  "name": "@sebasgarcep/server-image-transformer-sharp",
+  "name": "server-image-transformer-sharp",
   "version": "0.1.0",
   "description": "A Sharp transformer for server-image",
   "authors": [
@@ -35,7 +35,7 @@
     "release": "dotenv release-it --"
   },
   "dependencies": {
-    "@sebasgarcep/server-image-core": "^0.1.0"
+    "server-image-core": "^0.1.0"
   },
   "peerDependencies": {
     "sharp": "^0.33.2"

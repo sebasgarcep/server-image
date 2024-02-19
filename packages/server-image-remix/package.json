@@ -1,5 +1,5 @@
 {
-  "name": "@sebasgarcep/server-image-remix",
+  "name": "server-image-remix",
   "version": "0.1.0",
   "description": "Remix handler for image transformation",
   "authors": [
@@ -44,8 +44,8 @@
     "release": "dotenv release-it --"
   },
   "dependencies": {
-    "@sebasgarcep/server-image-core": "^0.1.0",
-    "@sebasgarcep/server-image": "^0.1.0"
+    "server-image-core": "^0.1.0",
+    "server-image": "^0.1.0"
   },
   "publishConfig": {
     "access": "public"

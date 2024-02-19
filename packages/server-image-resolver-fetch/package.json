@@ -1,5 +1,5 @@
 {
-  "name": "@sebasgarcep/server-image-resolver-fetch",
+  "name": "server-image-resolver-fetch",
   "version": "0.1.0",
   "description": "Asset resolver using Web API fetch.",
   "authors": [
@@ -44,7 +44,7 @@
     "release": "dotenv release-it --"
   },
   "dependencies": {
-    "@sebasgarcep/server-image-core": "^0.1.0"
+    "server-image-core": "^0.1.0"
   },
   "publishConfig": {
     "access": "public"

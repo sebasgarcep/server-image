@@ -1,5 +1,5 @@
 import resize from "@jsquash/resize";
-import { Color, ImageFit, ImagePosition } from "@sebasgarcep/server-image-core";
+import { Color, ImageFit, ImagePosition } from "server-image-core";
 import ImageData from "../types/ImageData";
 import { getFrameDimensions } from "../utils/sizing";
 

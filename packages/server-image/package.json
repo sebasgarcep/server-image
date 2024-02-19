@@ -1,5 +1,5 @@
 {
-  "name": "@sebasgarcep/server-image",
+  "name": "server-image",
   "version": "0.1.0",
   "description": "Core server handler for image transformation",
   "authors": [
@@ -44,7 +44,7 @@
     "release": "dotenv release-it --"
   },
   "dependencies": {
-    "@sebasgarcep/server-image-core": "^0.1.0",
+    "server-image-core": "^0.1.0",
     "mime-tree": "^0.1.4"
   },
   "devDependencies": {

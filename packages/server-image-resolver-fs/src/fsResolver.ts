@@ -2,7 +2,7 @@ import fs from "fs";
 import path from "path";
 import isSvg from "is-svg";
 import mimeFromBuffer from "mime-tree";
-import { MimeType, RemixImageError, Resolver, UnsupportedImageError } from "@sebasgarcep/server-image-core";
+import { MimeType, RemixImageError, Resolver, UnsupportedImageError } from "server-image-core";
 
 export const fsResolver: Resolver = async (asset, _url, _options, basePath) => {
   const filePath = path.resolve(basePath, asset.slice(1));

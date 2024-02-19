@@ -1,4 +1,4 @@
-import { Color } from "@sebasgarcep/server-image-core";
+import { Color } from "server-image-core";
 import ImageData from "../types/ImageData";
 
 const ternaryPercent = (num: number, full: number) => (num < 1 ? Math.round(num * full) : num);

@@ -1,5 +1,5 @@
 {
-  "name": "@sebasgarcep/server-image-loader-imgix",
+  "name": "server-image-loader-imgix",
   "version": "0.1.0",
   "description": "Client loader for imgix's image transformation service.",
   "authors": [
@@ -44,7 +44,7 @@
     "release": "dotenv release-it --"
   },
   "dependencies": {
-    "@sebasgarcep/server-image-core": "^0.1.0"
+    "server-image-core": "^0.1.0"
   },
   "publishConfig": {
     "access": "public"

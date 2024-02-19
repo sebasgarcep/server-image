@@ -1,5 +1,5 @@
 import BaseCache from "@udisc/hybrid-disk-cache";
-import { CacheConfig, Cache, CacheStatus } from "@sebasgarcep/server-image-core";
+import { CacheConfig, Cache, CacheStatus } from "server-image-core";
 
 export interface DiskCacheConfig extends CacheConfig {
   /**

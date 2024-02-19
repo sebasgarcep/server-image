@@ -3,7 +3,7 @@ import {
   ImagePosition,
   ImagePositionHorizontal,
   ImagePositionVertical,
-} from "@sebasgarcep/server-image-core";
+} from "server-image-core";
 
 const positionSplitter: Record<
   ImagePosition,

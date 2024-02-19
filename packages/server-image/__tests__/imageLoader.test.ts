@@ -2,7 +2,7 @@ import fs from "fs/promises";
 import path from "path";
 import { imageTransformationHandler } from "../src/handler";
 import { HandlerConfig } from "../src/types";
-import { Resolver, MimeType } from "@sebasgarcep/server-image-core";
+import { Resolver, MimeType } from "server-image-core";
 
 const fetchResolver: Resolver = async () => {
   return {

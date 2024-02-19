@@ -1,5 +1,5 @@
 import * as React from "react";
-import { ClientLoader, SizelessOptions } from "@sebasgarcep/server-image-core";
+import { ClientLoader, SizelessOptions } from "server-image-core";
 
 import { ResponsiveSize } from "../types";
 

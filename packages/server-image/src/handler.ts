@@ -5,7 +5,7 @@ import {
   TransformOptions,
   UnsupportedImageError,
   parseURL,
-} from "@sebasgarcep/server-image-core";
+} from "server-image-core";
 import { ImageTransformationHandler } from "./types";
 
 export const imageTransformationHandler: ImageTransformationHandler = async (

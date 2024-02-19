@@ -1,4 +1,4 @@
-import { TransformOptions } from "@sebasgarcep/server-image-core";
+import { TransformOptions } from "server-image-core";
 import ImageData from "./ImageData";
 
 export interface ImageHandler {

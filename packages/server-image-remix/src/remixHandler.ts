@@ -1,5 +1,5 @@
-import { RemixImageError, decodeQuery, decodeTransformQuery, parseURL } from "@sebasgarcep/server-image-core";
-import { imageTransformationHandler } from "@sebasgarcep/server-image";
+import { RemixImageError, decodeQuery, decodeTransformQuery, parseURL } from "server-image-core";
+import { imageTransformationHandler } from "server-image";
 import { RemixHandler } from "./types";
 import { imageResponse, redirectResponse, textResponse } from "./utils";
 

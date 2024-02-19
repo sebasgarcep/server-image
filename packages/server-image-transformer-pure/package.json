@@ -1,5 +1,5 @@
 {
-  "name": "@sebasgarcep/server-image-transformer-pure",
+  "name": "server-image-transformer-pure",
   "version": "0.1.0",
   "description": "Asset transformer in pure JS.",
   "authors": [
@@ -44,7 +44,7 @@
     "release": "dotenv release-it --"
   },
   "dependencies": {
-    "@sebasgarcep/server-image-core": "^0.1.0",
+    "server-image-core": "^0.1.0",
     "js-image-lib": "^1.0.1"
   },
   "publishConfig": {
