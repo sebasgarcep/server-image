@@ -1,4 +1,11 @@
-import type { Cache, MimeType, Resolver, SizelessOptions, Transformer } from "@sebasgarcep/server-image-core";
+import type {
+  Cache,
+  MimeType,
+  Resolver,
+  SizelessOptions,
+  TransformOptions,
+  Transformer,
+} from "@sebasgarcep/server-image-core";
 
 export interface HandlerConfig {
   /** The URL for this Remix server. */
@@ -15,8 +22,6 @@ export interface HandlerConfig {
   cache?: Cache;
   /** Default TransformOptions to use, can be overridden by the client. (optional) */
   defaultOptions?: SizelessOptions;
-  /** Redirect image to original source if RemixImage fails. (optional, default false) */
-  redirectOnFail?: boolean;
   /** A set of mime types that should be returned without transformation. (optional, default Set([MimeType.SVG]) */
   skipFormats?: Set<MimeType> | null;
   /** The base file path used for the resolver. (optional, default "public") */
@@ -29,4 +34,20 @@ export interface HandlerConfig {
   verbose?: boolean;
 }
 
-export type ImageTransformationHandler = (config: HandlerConfig, request: Request) => Promise<Response>;
+export interface HandlerRequest {
+  /* Transforms to apply to image */
+  transform: Partial<TransformOptions>;
+  /* Image source to retrieve from */
+  src: string;
+  /* Cache key to use if cache is provided */
+  cacheKey: string;
+}
+
+export interface HandlerResult {
+  /* Type of generated asset */
+  outputContentType: MimeType;
+  /* Generated asset binary data */
+  data: Uint8Array;
+}
+
+export type ImageTransformationHandler = (config: HandlerConfig, request: HandlerRequest) => Promise<HandlerResult>;

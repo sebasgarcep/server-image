@@ -34,12 +34,12 @@
     "README.md"
   ],
   "scripts": {
+    "build": "tsup",
     "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,css,scss}\"",
     "lint": "eslint --fix --ext ts --ext tsx --ext js --ext jsx .",
     "typecheck": "tsc --project tsconfig.json --noEmit",
     "test": "jest -c=../../jest.config.js --passWithNoTests",
     "test:watch": "jest -c=../../jest.config.js --watch",
-    "build": "tsup",
     "release": "dotenv release-it --"
   },
   "dependencies": {
