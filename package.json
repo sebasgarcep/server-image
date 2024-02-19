@@ -15,7 +15,21 @@
     "url": "https://github.com/sebasgarcep/server-image/issues"
   },
   "workspaces": [
-    "packages/*"
+    "packages/server-image-core",
+    "packages/server-image",
+    "packages/server-image-remix",
+    "packages/server-image-react",
+    "packages/server-image-cache-disk",
+    "packages/server-image-cache-memory",
+    "packages/server-image-loader-cloudflare",
+    "packages/server-image-loader-cloudinary",
+    "packages/server-image-loader-imgix",
+    "packages/server-image-loader-server",
+    "packages/server-image-resolver-cfkv",
+    "packages/server-image-resolver-fetch",
+    "packages/server-image-resolver-fs",
+    "packages/server-image-transformer-pure",
+    "packages/server-image-transformer-sharp"
   ],
   "scripts": {
     "build": "npm run build --workspaces",
