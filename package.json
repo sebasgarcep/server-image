@@ -38,7 +38,7 @@
     "lint": "npm run lint --workspaces",
     "typecheck": "npm run typecheck --workspaces",
     "test": "jest --passWithNoTests",
-    "validate": "run-p build lint typecheck"
+    "validate": "npm run build && run-p lint typecheck"
   },
   "devDependencies": {
     "@release-it-plugins/workspaces": "^4.2.0",
