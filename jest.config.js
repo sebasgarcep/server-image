@@ -7,7 +7,6 @@ module.exports = {
   testPathIgnorePatterns: ["node_modules/"],
   transform: {
     "^.+\\.(ts|tsx)?$": "ts-jest",
-    "^.+\\.(js|jsx)$": "babel-jest",
   },
   testMatch: ["**/*.test.(ts|tsx)"],
   moduleNameMapper: {
