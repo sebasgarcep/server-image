@@ -1,0 +1,59 @@
+{
+  "name": "@sebasgarcep/server-image-react",
+  "version": "0.1.1",
+  "description": "React integration for server-image.",
+  "authors": [
+    "Josh McFarlin <josh@mcfarl.in>",
+    "Sebastian Garrido <sebasgarcep@gmail.com>"
+  ],
+  "license": "MIT",
+  "sideEffects": false,
+  "keywords": [
+    "react",
+    "remix",
+    "image",
+    "responsive"
+  ],
+  "homepage": "https://remix-image.mcfarl.in",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sebasgarcep/server-image.git",
+    "directory": "packages/server-image-react"
+  },
+  "bugs": {
+    "url": "https://github.com/sebasgarcep/server-image/issues"
+  },
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": "./dist/index.js"
+  },
+  "files": [
+    "dist",
+    "package.json",
+    "README.md"
+  ],
+  "scripts": {
+    "build": "tsup",
+    "clean": "rimraf dist",
+    "format": "eslint --fix .",
+    "lint": "eslint .",
+    "typecheck": "tsc --noEmit",
+    "test": "jest -c=../../jest.config.js --passWithNoTests",
+    "test:watch": "jest -c=../../jest.config.js --watch",
+    "release": "dotenv release-it --"
+  },
+  "dependencies": {
+    "@sebasgarcep/server-image-core": "^0.1.1",
+    "clsx": "^2.1.0"
+  },
+  "peerDependencies": {
+    "react": ">=18.0.0"
+  },
+  "devDependencies": {
+    "@testing-library/react": "^12.1.5",
+    "@types/react": "^18.2.56",
+    "eslint-plugin-react": "^7.33.2",
+    "eslint-plugin-react-hooks": "^4.6.0"
+  }
+}
