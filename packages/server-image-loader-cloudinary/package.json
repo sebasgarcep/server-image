@@ -1,7 +1,7 @@
 {
   "name": "@sebasgarcep/server-image-loader-cloudinary",
   "version": "0.1.0",
-  "description": "Client loader for cloudinary image transformation service.",
+  "description": "Client loader for cloudinary's image transformation service.",
   "authors": [
     "Josh McFarlin <josh@mcfarl.in>",
     "Sebastian Garrido <sebasgarcep@gmail.com>"

@@ -1,11 +1,10 @@
-import { ClientLoader } from "../types/client";
+import { ClientLoader } from "@sebasgarcep/server-image-core";
 
 const normalizeSrc = (src: string) => {
   return src.startsWith("/") ? src.slice(1) : src;
 };
 
-const numberToHex = (num: number): string =>
-  ("0" + Number(num).toString(16)).slice(-2).toUpperCase();
+const numberToHex = (num: number): string => ("0" + Number(num).toString(16)).slice(-2).toUpperCase();
 
 export const imgixImageLoader: ClientLoader = (src, loaderUrl, loaderOptions) => {
   const url = new URL(`${loaderUrl}${normalizeSrc(src)}`);
@@ -25,14 +24,14 @@ export const imgixImageLoader: ClientLoader = (src, loaderUrl, loaderOptions) =>
       numberToHex(loaderOptions.background[3]) +
         numberToHex(loaderOptions.background[0]) +
         numberToHex(loaderOptions.background[1]) +
-        numberToHex(loaderOptions.background[2])
+        numberToHex(loaderOptions.background[2]),
     );
   }
 
   if (loaderOptions.crop) {
     params.set(
       "rect",
-      `${loaderOptions.crop.x},${loaderOptions.crop.y},${loaderOptions.crop.width},${loaderOptions.crop.height}`
+      `${loaderOptions.crop.x},${loaderOptions.crop.y},${loaderOptions.crop.width},${loaderOptions.crop.height}`,
     );
   }
 
@@ -69,10 +68,7 @@ export const imgixImageLoader: ClientLoader = (src, loaderUrl, loaderOptions) =>
   }
 
   if (loaderOptions.contentType) {
-    params.set(
-      "format",
-      loaderOptions.contentType.replace("image/", "").replace("jpeg", "jpg")
-    );
+    params.set("format", loaderOptions.contentType.replace("image/", "").replace("jpeg", "jpg"));
   } else {
     params.set("auto", "format");
   }
