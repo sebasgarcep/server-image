@@ -1,6 +1,6 @@
 {
   "name": "@sebasgarcep/server-image-react",
-  "version": "0.0.2",
+  "version": "0.1.0",
   "description": "React integration for server-image.",
   "authors": [
     "Josh McFarlin <josh@mcfarl.in>",
@@ -44,7 +44,7 @@
     "release": "dotenv release-it --"
   },
   "dependencies": {
-    "@sebasgarcep/server-image-core": "^0.0.2",
+    "@sebasgarcep/server-image-core": "^0.1.0",
     "clsx": "^2.1.0"
   },
   "peerDependencies": {
@@ -55,5 +55,8 @@
     "@types/react": "^18.2.56",
     "eslint-plugin-react": "^7.33.2",
     "eslint-plugin-react-hooks": "^4.6.0"
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }

@@ -1,6 +1,6 @@
 {
   "name": "@sebasgarcep/server-image-resolver-cfkv",
-  "version": "0.0.2",
+  "version": "0.1.0",
   "description": "Asset resolver using Cloudflare's key-value asset resolver.",
   "authors": [
     "Josh McFarlin <josh@mcfarl.in>",
@@ -45,8 +45,11 @@
   },
   "dependencies": {
     "@cloudflare/kv-asset-handler": "^0.3.1",
-    "@sebasgarcep/server-image-core": "^0.0.2",
+    "@sebasgarcep/server-image-core": "^0.1.0",
     "is-svg": "^5.0.0",
     "mime-tree": "^0.1.4"
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }
