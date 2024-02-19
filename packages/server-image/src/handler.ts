@@ -120,7 +120,7 @@ export const imageTransformationHandler: ImageTransformationHandler = async (
 
   if (!shouldTransform || skipFormats?.has(inputContentType)) {
     resultImg = loadedImg;
-  } else if (transformer != null) {
+  } else if (transformer !== undefined) {
     let curTransformer = transformer;
 
     if (!transformer.supportedInputs.has(inputContentType)) {

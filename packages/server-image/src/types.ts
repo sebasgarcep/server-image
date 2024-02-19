@@ -12,8 +12,8 @@ export interface HandlerConfig {
   selfUrl: string;
   /** A resolver function that handles retrieving image assets. */
   resolver: Resolver;
-  /** A transformer function that handles mutations of images. If this option is null, transformation will be skipped. */
-  transformer: Transformer | null;
+  /** A transformer function that handles mutations of images. (optional) */
+  transformer?: Transformer;
   /** The output mime type the image should fallback to if the provided output type is not supported. (optional, default MimeType.JPEG) */
   fallbackFormat?: MimeType;
   /** The transformer the loader should use if the provided custom transformer fails. */
