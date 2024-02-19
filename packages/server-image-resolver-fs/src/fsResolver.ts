@@ -2,9 +2,7 @@ import fs from "fs";
 import path from "path";
 import isSvg from "is-svg";
 import mimeFromBuffer from "mime-tree";
-import { RemixImageError, UnsupportedImageError } from "../../types/error";
-import { MimeType } from "../../types/file";
-import type { Resolver } from "../../types/resolver";
+import { MimeType, RemixImageError, Resolver, UnsupportedImageError } from "@sebasgarcep/server-image-core";
 
 export const fsResolver: Resolver = async (asset, _url, _options, basePath) => {
   const filePath = path.resolve(basePath, asset.slice(1));
@@ -28,6 +26,6 @@ export const fsResolver: Resolver = async (asset, _url, _options, basePath) => {
 
   return {
     buffer: new Uint8Array(buffer),
-    contentType,
+    contentType: contentType as unknown as MimeType,
   };
 };
