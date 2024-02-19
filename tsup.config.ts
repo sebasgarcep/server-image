@@ -4,7 +4,7 @@ export default defineConfig(() => {
   return {
     entry: ["src/index.ts"],
     sourcemap: true,
-    tsconfig: "./tsconfig.json",
+    tsconfig: "./tsconfig.build.json",
     dts: true,
     format: ["cjs", "esm"],
     clean: true,

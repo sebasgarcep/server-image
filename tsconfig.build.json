@@ -13,15 +13,6 @@
     "isolatedModules": true,
     "rootDir": ".",
     "declaration": true,
-    "composite": true
-  },
-  "files": [],
-  "references": [
-    {
-      "path": "packages/server-image-core"
-    },
-    {
-      "path": "packages/server-image"
-    }
-  ]
+    "declarationMap": true
+  }
 }

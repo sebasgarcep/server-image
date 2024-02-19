@@ -18,7 +18,7 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/sebasgarcep/server-image.git",
-    "directory": "packages/remix-image"
+    "directory": "packages/server-image"
   },
   "bugs": {
     "url": "https://github.com/sebasgarcep/server-image/issues"
