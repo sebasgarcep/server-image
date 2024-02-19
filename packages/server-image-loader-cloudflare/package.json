@@ -1,6 +1,6 @@
 {
   "name": "server-image-loader-cloudflare",
-  "version": "0.1.0",
+  "version": "0.0.1",
   "description": "Client loader for cloudflare's image transformation service.",
   "authors": [
     "Josh McFarlin <josh@mcfarl.in>",
@@ -44,7 +44,7 @@
     "release": "dotenv release-it --"
   },
   "dependencies": {
-    "server-image-core": "^0.1.0"
+    "server-image-core": "^0.0.1"
   },
   "publishConfig": {
     "access": "public"
