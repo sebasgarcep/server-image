@@ -7,8 +7,5 @@
     "tag": false,
     "push": true
   },
-  "npm": {
-    "publish": false,
-    "allowSameVersion": true
-  }
+  "npm": false
 }
