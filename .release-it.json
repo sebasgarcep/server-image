@@ -3,9 +3,9 @@
     "@release-it-plugins/workspaces": true
   },
   "git": {
-    "commit": false,
+    "commit": true,
     "tag": false,
-    "push": false
+    "push": true
   },
   "npm": {
     "publish": false
