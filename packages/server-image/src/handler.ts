@@ -1,17 +1,17 @@
 import mimeFromBuffer from "mime-tree";
 import { MimeType, TransformOptions, UnsupportedImageError } from "../../types";
 import { RemixImageError } from "../../types/error";
-import type { AssetLoader } from "../../types/loader";
 import {
   imageResponse,
   textResponse,
   redirectResponse,
-} from "../../utils/response";
+} from "./utils";
 import { decodeQuery, decodeTransformQuery, parseURL } from "../../utils/url";
 import { fetchResolver } from "../resolvers/fetchResolver";
 import { pureTransformer } from "../transformers";
+import { ImageTransformationHandler } from "./types";
 
-export const imageLoader: AssetLoader = async (
+export const imageTransformationHandler: ImageTransformationHandler = async (
   {
     selfUrl,
     cache = null,

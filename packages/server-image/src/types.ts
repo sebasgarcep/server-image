@@ -3,7 +3,7 @@ import type { MimeType } from "./file";
 import type { Resolver } from "./resolver";
 import type { SizelessOptions, Transformer } from "./transformer";
 
-export interface LoaderConfig {
+export interface HandlerConfig {
   /** The URL for this Remix server. */
   selfUrl: string;
   /** A resolver function that handles retrieving image assets. (optional, default fetchResolver) */
@@ -36,7 +36,7 @@ export interface LoaderConfig {
   verbose?: boolean;
 }
 
-export type AssetLoader = (
-  config: LoaderConfig,
+export type ImageTransformationHandler = (
+  config: HandlerConfig,
   request: Request
 ) => Promise<Response>;
