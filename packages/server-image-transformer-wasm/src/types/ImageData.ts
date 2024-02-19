@@ -6,12 +6,7 @@ export default class ImageData {
   readonly height: number;
   readonly colorSpace: ColorSpace;
 
-  constructor(
-    data: Uint8ClampedArray,
-    width: number,
-    height: number,
-    colorSpace: ColorSpace = "srgb"
-  ) {
+  constructor(data: Uint8ClampedArray, width: number, height: number, colorSpace: ColorSpace = "srgb") {
     this.data = data;
     this.width = width;
     this.height = height;

@@ -1,10 +1,7 @@
 import resize from "@jsquash/resize";
-import { Color, ImageFit, ImagePosition } from "remix-image";
+import { Color, ImageFit, ImagePosition } from "@sebasgarcep/server-image-core";
 import ImageData from "../types/ImageData";
-import {
-  getFrameDimensions,
-  // getImageDimensions
-} from "../utils/sizing";
+import { getFrameDimensions } from "../utils/sizing";
 
 export const resizeImage = async (
   src: ImageData,
@@ -14,28 +11,13 @@ export const resizeImage = async (
     fit: ImageFit;
     position: ImagePosition;
   },
-  background: Color
+  background: Color,
 ): Promise<ImageData> => {
   if (!width && !height) {
     throw new Error("At least one dimension must be provided!");
   }
 
-  const { frameWidth, frameHeight } = getFrameDimensions(
-    src.width,
-    src.height,
-    width,
-    height,
-    resizeOptions.fit
-  );
-
-  // const { imageWidth, imageHeight, xOffset, yOffset } = getImageDimensions(
-  //   src.width,
-  //   src.height,
-  //   frameWidth,
-  //   frameHeight,
-  //   resizeOptions.fit,
-  //   resizeOptions.position
-  // );
+  const { frameWidth, frameHeight } = getFrameDimensions(src.width, src.height, width, height, resizeOptions.fit);
 
   const dstBuffer = new Uint8ClampedArray(src.data.length);
 
@@ -58,7 +40,7 @@ export const resizeImage = async (
       width: frameWidth,
       height: frameHeight,
       fitMethod: "stretch",
-    }
+    },
   );
 
   return {

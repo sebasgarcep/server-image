@@ -1,4 +1,4 @@
-import { ImagePosition, MimeType, Transformer } from "remix-image";
+import { ImagePosition, MimeType, Transformer } from "@sebasgarcep/server-image-core";
 import { AvifHandler, WebpHandler, JpegHandler, PngHandler } from "./handlers";
 import { blurImage } from "./operations/blur";
 import { cropImage } from "./operations/crop";
@@ -19,7 +19,7 @@ export const supportedInputs = new Set<MimeType>(
     }
 
     return accum;
-  }, [])
+  }, []),
 );
 
 export const supportedOutputs = new Set<MimeType>(
@@ -34,7 +34,7 @@ export const supportedOutputs = new Set<MimeType>(
     }
 
     return accum;
-  }, [])
+  }, []),
 );
 
 const typeHandlers: Record<string, ImageHandler> = {
@@ -66,7 +66,7 @@ export const wasmTransformer: Transformer = {
       flip,
       crop,
       compressionLevel,
-    }
+    },
   ) => {
     let image = await typeHandlers[inputContentType].decode(data);
 
@@ -83,7 +83,7 @@ export const wasmTransformer: Transformer = {
           fit,
           position: position as ImagePosition,
         },
-        background
+        background,
       );
     }
 

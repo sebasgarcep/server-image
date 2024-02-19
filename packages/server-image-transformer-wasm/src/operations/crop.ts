@@ -1,8 +1,7 @@
-import { Color } from "remix-image";
+import { Color } from "@sebasgarcep/server-image-core";
 import ImageData from "../types/ImageData";
 
-const ternaryPercent = (num: number, full: number) =>
-  num < 1 ? Math.round(num * full) : num;
+const ternaryPercent = (num: number, full: number) => (num < 1 ? Math.round(num * full) : num);
 
 export const cropImage = async (
   src: ImageData,
@@ -12,7 +11,7 @@ export const cropImage = async (
     width: number;
     height: number;
   },
-  background: Color
+  background: Color,
 ): Promise<ImageData> => {
   const startX = ternaryPercent(cropOptions.x, src.width);
   const startY = ternaryPercent(cropOptions.y, src.height);

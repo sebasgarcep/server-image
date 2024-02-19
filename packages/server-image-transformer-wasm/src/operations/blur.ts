@@ -7,7 +7,7 @@ const updateDataTextureFromChannelArrs = (
   arrR: number[],
   arrG: number[],
   arrB: number[],
-  arrA: number[]
+  arrA: number[],
 ) => {
   for (let i = 0; i < w * h; i++) {
     rgba[i * 4] = arrR[i];
@@ -22,7 +22,7 @@ const updateDataTextureFromChannelArrs = (
 const splitDataTextureIntoChannelArrays = (
   rgba: Uint8ClampedArray,
   w: number,
-  h: number
+  h: number,
 ): [number[], number[], number[], number[]] => {
   const arrR = [];
   const arrG = [];
@@ -39,26 +39,13 @@ const splitDataTextureIntoChannelArrays = (
   return [arrR, arrG, arrB, arrA];
 };
 
-const gaussBlur_4 = (
-  scl: number[],
-  tcl: number[],
-  w: number,
-  h: number,
-  _r: number,
-  bxs: number[]
-) => {
+const gaussBlur_4 = (scl: number[], tcl: number[], w: number, h: number, _r: number, bxs: number[]) => {
   boxBlur_4(scl, tcl, w, h, (bxs[0] - 1) / 2);
   boxBlur_4(tcl, scl, w, h, (bxs[1] - 1) / 2);
   boxBlur_4(scl, tcl, w, h, (bxs[2] - 1) / 2);
 };
 
-const boxBlur_4 = (
-  scl: number[],
-  tcl: number[],
-  w: number,
-  h: number,
-  r: number
-) => {
+const boxBlur_4 = (scl: number[], tcl: number[], w: number, h: number, r: number) => {
   for (let i = 0; i < scl.length; i++) {
     tcl[i] = scl[i];
   }
@@ -67,13 +54,7 @@ const boxBlur_4 = (
   boxBlurT_4(scl, tcl, w, h, r);
 };
 
-const boxBlurH_4 = (
-  scl: number[],
-  tcl: number[],
-  w: number,
-  h: number,
-  r: number
-) => {
+const boxBlurH_4 = (scl: number[], tcl: number[], w: number, h: number, r: number) => {
   const iarr = 1 / (r + r + 1);
 
   for (let i = 0; i < h; i++) {
@@ -106,13 +87,7 @@ const boxBlurH_4 = (
   }
 };
 
-const boxBlurT_4 = (
-  scl: number[],
-  tcl: number[],
-  w: number,
-  h: number,
-  r: number
-) => {
+const boxBlurT_4 = (scl: number[], tcl: number[], w: number, h: number, r: number) => {
   const iarr = 1 / (r + r + 1);
 
   for (let i = 0; i < w; i++) {
@@ -157,8 +132,7 @@ const boxesForGauss = (sigma: number, n: number) => {
   if (wl % 2 == 0) wl--;
   const wu = wl + 2;
 
-  const mIdeal =
-    (12 * sigma * sigma - n * wl * wl - 4 * n * wl - 3 * n) / (-4 * wl - 4);
+  const mIdeal = (12 * sigma * sigma - n * wl * wl - 4 * n * wl - 3 * n) / (-4 * wl - 4);
   const m = Math.round(mIdeal);
 
   const sizes = [];
@@ -169,46 +143,14 @@ const boxesForGauss = (sigma: number, n: number) => {
   return sizes;
 };
 
-export const blurImage = async (
-  src: ImageData,
-  blurRadius: number
-): Promise<ImageData> => {
-  const dtChannelsOld = splitDataTextureIntoChannelArrays(
-    src.data,
-    src.width,
-    src.height
-  );
-  const dtChannelsBlurred = splitDataTextureIntoChannelArrays(
-    src.data,
-    src.width,
-    src.height
-  );
+export const blurImage = async (src: ImageData, blurRadius: number): Promise<ImageData> => {
+  const dtChannelsOld = splitDataTextureIntoChannelArrays(src.data, src.width, src.height);
+  const dtChannelsBlurred = splitDataTextureIntoChannelArrays(src.data, src.width, src.height);
   const bxs = boxesForGauss(blurRadius, 3);
 
-  gaussBlur_4(
-    dtChannelsOld[0],
-    dtChannelsBlurred[0],
-    src.width,
-    src.height,
-    blurRadius,
-    bxs
-  );
-  gaussBlur_4(
-    dtChannelsOld[1],
-    dtChannelsBlurred[1],
-    src.width,
-    src.height,
-    blurRadius,
-    bxs
-  );
-  gaussBlur_4(
-    dtChannelsOld[2],
-    dtChannelsBlurred[2],
-    src.width,
-    src.height,
-    blurRadius,
-    bxs
-  );
+  gaussBlur_4(dtChannelsOld[0], dtChannelsBlurred[0], src.width, src.height, blurRadius, bxs);
+  gaussBlur_4(dtChannelsOld[1], dtChannelsBlurred[1], src.width, src.height, blurRadius, bxs);
+  gaussBlur_4(dtChannelsOld[2], dtChannelsBlurred[2], src.width, src.height, blurRadius, bxs);
 
   updateDataTextureFromChannelArrs(
     src.data,
@@ -217,7 +159,7 @@ export const blurImage = async (
     dtChannelsBlurred[0],
     dtChannelsBlurred[1],
     dtChannelsBlurred[2],
-    dtChannelsBlurred[3]
+    dtChannelsBlurred[3],
   );
 
   return src;

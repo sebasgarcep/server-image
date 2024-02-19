@@ -1,4 +1,4 @@
-import { TransformOptions } from "remix-image";
+import { TransformOptions } from "@sebasgarcep/server-image-core";
 import ImageData from "./ImageData";
 
 export interface ImageHandler {

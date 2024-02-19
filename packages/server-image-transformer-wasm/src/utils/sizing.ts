@@ -3,7 +3,7 @@ import {
   ImagePosition,
   ImagePositionHorizontal,
   ImagePositionVertical,
-} from "remix-image";
+} from "@sebasgarcep/server-image-core";
 
 const positionSplitter: Record<
   ImagePosition,
@@ -44,7 +44,7 @@ const positionSplitter: Record<
 };
 
 export const getPositions = (
-  position: ImagePosition
+  position: ImagePosition,
 ): {
   horizontalPosition: ImagePositionHorizontal;
   verticalPosition: ImagePositionVertical;
@@ -57,7 +57,7 @@ export const getFrameDimensions = (
   srcHeight: number,
   maxWidth: number | null,
   maxHeight: number | null,
-  fit: ImageFit
+  fit: ImageFit,
 ): {
   frameWidth: number;
   frameHeight: number;
@@ -105,7 +105,7 @@ export const getImageDimensions = (
   frameWidth: number,
   frameHeight: number,
   fit: ImageFit,
-  position: ImagePosition
+  position: ImagePosition,
 ): {
   imageWidth: number;
   imageHeight: number;

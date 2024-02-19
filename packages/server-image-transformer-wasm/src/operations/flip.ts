@@ -1,10 +1,7 @@
-import { FlipDirection } from "remix-image";
+import { FlipDirection } from "@sebasgarcep/server-image-core";
 import ImageData from "../types/ImageData";
 
-export const flipImage = async (
-  src: ImageData,
-  direction: FlipDirection
-): Promise<ImageData> => {
+export const flipImage = async (src: ImageData, direction: FlipDirection): Promise<ImageData> => {
   if (direction === "horizontal" || direction === "both") {
     for (let row = 0; row < src.height; row += 1) {
       const rowIdx = row * src.width;

@@ -20,17 +20,11 @@
  * THE SOFTWARE.
  */
 
-import { Color, ImageFit, ImagePosition } from "remix-image";
+import { Color, ImageFit, ImagePosition } from "@sebasgarcep/server-image-core";
 import ImageData from "../types/ImageData";
 import { getFrameDimensions, getImageDimensions } from "../utils/sizing";
 
-const interpolate = (
-  k: number,
-  kMin: number,
-  vMin: number,
-  kMax: number,
-  vMax: number
-) => {
+const interpolate = (k: number, kMin: number, vMin: number, kMax: number, vMax: number) => {
   // special case - k is integer
   if (kMin === kMax) {
     return vMin;
@@ -49,7 +43,7 @@ const assign = (
   y: number,
   yMin: number,
   yMax: number,
-  background: Color
+  background: Color,
 ) => {
   const result = [0x0, 0x0, 0x0, 0x0];
 
@@ -64,13 +58,7 @@ const assign = (
     } else {
       posMin = (yMax * src.width + xMin) * 4 + offset;
       posMax = (yMax * src.width + xMax) * 4 + offset;
-      const vMax = interpolate(
-        x,
-        xMin,
-        src.data[posMin],
-        xMax,
-        src.data[posMax]
-      );
+      const vMax = interpolate(x, xMin, src.data[posMin], xMax, src.data[posMax]);
 
       result[offset] = interpolate(y, yMin, vMin, yMax, vMax);
     }
@@ -91,19 +79,13 @@ export const resizeImage = async (
     fit: ImageFit;
     position: ImagePosition;
   },
-  background: Color
+  background: Color,
 ): Promise<ImageData> => {
   if (!width && !height) {
     throw new Error("At least one dimension must be provided!");
   }
 
-  const { frameWidth, frameHeight } = getFrameDimensions(
-    src.width,
-    src.height,
-    width,
-    height,
-    resizeOptions.fit
-  );
+  const { frameWidth, frameHeight } = getFrameDimensions(src.width, src.height, width, height, resizeOptions.fit);
 
   const { imageWidth, imageHeight, xOffset, yOffset } = getImageDimensions(
     src.width,
@@ -111,7 +93,7 @@ export const resizeImage = async (
     frameWidth,
     frameHeight,
     resizeOptions.fit,
-    resizeOptions.position
+    resizeOptions.position,
   );
 
   const dstBuffer = new Uint8ClampedArray(frameWidth * frameHeight * 4);
@@ -120,22 +102,9 @@ export const resizeImage = async (
     dstBuffer.set(background, i);
   }
 
-  for (
-    let row = 0;
-    row < imageHeight && row + yOffset < frameHeight;
-    row += 1
-  ) {
-    for (
-      let col = 0;
-      col < imageWidth && col + xOffset < frameWidth;
-      col += 1
-    ) {
-      if (
-        col + xOffset < 0 ||
-        col + xOffset >= frameWidth ||
-        row + yOffset < 0 ||
-        row + yOffset >= frameHeight
-      ) {
+  for (let row = 0; row < imageHeight && row + yOffset < frameHeight; row += 1) {
+    for (let col = 0; col < imageWidth && col + xOffset < frameWidth; col += 1) {
+      if (col + xOffset < 0 || col + xOffset >= frameWidth || row + yOffset < 0 || row + yOffset >= frameHeight) {
         continue;
       }
 
