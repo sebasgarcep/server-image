@@ -1,5 +1,4 @@
-import { ClientLoader } from "../types/client";
-import { ImagePosition } from "../types/transformer";
+import { ClientLoader, ImagePosition } from "@sebasgarcep/server-image-core";
 
 const normalizeSrc = (src: string) => {
   return src.startsWith("/") ? src.slice(1) : src;
@@ -22,20 +21,14 @@ const positionMap: Record<ImagePosition, string> = {
   top: "top",
 };
 
-export const cloudflareImagesLoader: ClientLoader = (
-  src,
-  _loaderUrl,
-  loaderOptions
-) => {
+export const cloudflareImageLoader: ClientLoader = (src, _loaderUrl, loaderOptions) => {
   const params = [];
 
   if (loaderOptions.background) {
     params.push(
       `background=rgba(${loaderOptions.background[0]},${
         loaderOptions.background[1]
-      },${loaderOptions.background[2]},${Number(
-        loaderOptions.background[3] / 255
-      ).toFixed(2)})`
+      },${loaderOptions.background[2]},${Number(loaderOptions.background[3] / 255).toFixed(2)})`,
     );
   }
 
@@ -43,7 +36,7 @@ export const cloudflareImagesLoader: ClientLoader = (
     params.push(
       `trim=${loaderOptions.crop.y};${
         loaderOptions.crop.x + loaderOptions.crop.width
-      };${loaderOptions.crop.height};${loaderOptions.crop.x}`
+      };${loaderOptions.crop.height};${loaderOptions.crop.x}`,
     );
   }
 
@@ -59,12 +52,8 @@ export const cloudflareImagesLoader: ClientLoader = (
     params.push(`fit=contain`);
 
     if (loaderOptions.width && loaderOptions.height) {
-      params.push(
-        `width=${Math.max(loaderOptions.width, loaderOptions.height)}`
-      );
-      params.push(
-        `height=${Math.max(loaderOptions.width, loaderOptions.height)}`
-      );
+      params.push(`width=${Math.max(loaderOptions.width, loaderOptions.height)}`);
+      params.push(`height=${Math.max(loaderOptions.width, loaderOptions.height)}`);
     } else if (loaderOptions.width) {
       params.push(`width=${loaderOptions.width}`);
     } else if (loaderOptions.height) {
@@ -91,11 +80,7 @@ export const cloudflareImagesLoader: ClientLoader = (
   }
 
   if (loaderOptions.position) {
-    params.push(
-      `gravity=${
-        positionMap[loaderOptions.position as ImagePosition] || "0.5x0.5"
-      }`
-    );
+    params.push(`gravity=${positionMap[loaderOptions.position as ImagePosition] || "0.5x0.5"}`);
   }
 
   if (loaderOptions.quality) {
