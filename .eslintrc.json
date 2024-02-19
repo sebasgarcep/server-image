@@ -4,13 +4,11 @@
     "eslint:recommended",
     "plugin:import/recommended",
     "plugin:import/typescript",
-    "plugin:react/recommended",
-    "plugin:react-hooks/recommended",
     "plugin:@typescript-eslint/recommended",
     "prettier",
     "plugin:prettier/recommended"
   ],
-  "plugins": ["@typescript-eslint", "import", "react-hooks"],
+  "plugins": ["@typescript-eslint", "import"],
   "parserOptions": {
     "ecmaVersion": 6,
     "sourceType": "module",
@@ -34,12 +32,6 @@
       "node": {
         "extensions": [".ts", ".tsx"]
       }
-    },
-    "react": {
-      "version": "detect"
     }
-  },
-  "rules": {
-    "react/prop-types": "off"
   }
 }

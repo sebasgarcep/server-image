@@ -1,5 +1,16 @@
 {
   "extends": [
+    "plugin:react/recommended",
+    "plugin:react-hooks/recommended",
     "../../.eslintrc.json"
-  ]
+  ],
+  "plugins": ["@typescript-eslint", "import", "react-hooks"],
+  "settings": {
+    "react": {
+      "version": "detect"
+    }
+  },
+  "rules": {
+    "react/prop-types": "off"
+  }
 }
