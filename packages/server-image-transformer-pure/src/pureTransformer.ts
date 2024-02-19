@@ -1,9 +1,5 @@
-import ImageTransformer, {
-  supportedInputs,
-  supportedOutputs,
-} from "js-image-lib";
-import { MimeType } from "../../types/file";
-import { ImagePosition, Transformer } from "../../types/transformer";
+import ImageTransformer, { supportedInputs, supportedOutputs } from "js-image-lib";
+import { ImagePosition, MimeType, Transformer } from "@sebasgarcep/server-image-core";
 
 export const pureTransformer: Transformer = {
   name: "pureTransformer",
@@ -27,7 +23,7 @@ export const pureTransformer: Transformer = {
       flip,
       crop,
       compressionLevel,
-    }
+    },
   ) => {
     const image = new ImageTransformer(data, inputContentType, {
       background,
@@ -42,7 +38,6 @@ export const pureTransformer: Transformer = {
     }
 
     if (width != null || height != null) {
-      // @ts-ignore at least one is a number
       image.resize(width, height, {
         fit,
         position: position as ImagePosition,

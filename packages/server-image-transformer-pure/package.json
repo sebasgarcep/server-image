@@ -1,7 +1,7 @@
 {
-  "name": "@sebasgarcep/server-image-resolver-cfkv",
+  "name": "@sebasgarcep/server-image-transformer-pure",
   "version": "0.1.0",
-  "description": "Asset resolver using Cloudflare's key-value asset resolver.",
+  "description": "Asset transformer in pure JS.",
   "authors": [
     "Josh McFarlin <josh@mcfarl.in>",
     "Sebastian Garrido <sebasgarcep@gmail.com>"
@@ -18,7 +18,7 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/sebasgarcep/server-image.git",
-    "directory": "packages/server-image-resolver-cfkv"
+    "directory": "packages/server-image-transformer-pure"
   },
   "bugs": {
     "url": "https://github.com/sebasgarcep/server-image/issues"
@@ -43,8 +43,7 @@
     "release": "dotenv release-it --"
   },
   "dependencies": {
-    "@cloudflare/kv-asset-handler": "^0.3.1",
     "@sebasgarcep/server-image-core": "^0.1.0",
-    "mime-tree": "^0.1.4"
+    "js-image-lib": "^1.0.1"
   }
 }
