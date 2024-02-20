@@ -1,6 +1,6 @@
 {
   "name": "server-image-transformer-pure",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "Asset transformer in pure JS.",
   "authors": [
     "Josh McFarlin <josh@mcfarl.in>",
@@ -44,7 +44,7 @@
     "release": "dotenv release-it --"
   },
   "dependencies": {
-    "server-image-core": "^0.2.1",
+    "server-image-core": "^0.2.2",
     "js-image-lib": "^1.0.1"
   },
   "publishConfig": {

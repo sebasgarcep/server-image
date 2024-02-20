@@ -1,6 +1,6 @@
 {
   "name": "server-image-loader-cloudinary",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "Client loader for cloudinary's image transformation service.",
   "authors": [
     "Josh McFarlin <josh@mcfarl.in>",
@@ -44,7 +44,7 @@
     "release": "dotenv release-it --"
   },
   "dependencies": {
-    "server-image-core": "^0.2.1"
+    "server-image-core": "^0.2.2"
   },
   "publishConfig": {
     "access": "public"

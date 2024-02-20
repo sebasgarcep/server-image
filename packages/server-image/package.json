@@ -1,6 +1,6 @@
 {
   "name": "server-image",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "Core server handler for image transformation",
   "authors": [
     "Josh McFarlin <josh@mcfarl.in>",
@@ -43,8 +43,8 @@
     "test:watch": "jest -c=../../jest.config.js --watch"
   },
   "dependencies": {
-    "server-image-core": "^0.2.1",
-    "server-image-resolver-fetch": "^0.2.1",
+    "server-image-core": "^0.2.2",
+    "server-image-resolver-fetch": "^0.2.2",
     "mime-tree": "^0.1.4"
   },
   "devDependencies": {
