@@ -1,4 +1,4 @@
-import "../remix-image.css";
+import "../index.css";
 
 import clsx from "clsx";
 import * as React from "react";
@@ -85,7 +85,7 @@ export const Image = React.memo<ImageProps>(
           loading={loading}
           style={imageStyle}
           className={clsx(
-            !unoptimized && "remix-image",
+            !unoptimized && "server-image",
             !unoptimized && placeholder === "blur" && "blur-in",
             className,
           )}

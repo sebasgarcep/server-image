@@ -1,13 +1,13 @@
-img.remix-image {
+img.server-image {
   transition: 0.125s filter ease-in-out;
   filter: blur(0px);
 }
 
-img.remix-image.blur {
+img.server-image.blur {
   filter: blur(15px);
 }
 
-.remix-image.blur-in {
+.server-image.blur-in {
   filter: blur(0px);
   animation-name: blurIn;
   animation-iteration-count: 1;
