@@ -1,9 +1,4 @@
-import {
-  ImageFit,
-  ImagePosition,
-  ImagePositionHorizontal,
-  ImagePositionVertical,
-} from "server-image-core";
+import { ImageFit, ImagePosition, ImagePositionHorizontal, ImagePositionVertical } from "server-image-core";
 
 const positionSplitter: Record<
   ImagePosition,

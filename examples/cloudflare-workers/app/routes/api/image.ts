@@ -7,7 +7,7 @@ import {
   fetchResolver,
   mB,
 } from "remix-image/serverPure";
-import { wasmTransformer } from "remix-image-wasm";
+import { wasmTransformer } from "server-image-transformer-wasm";
 
 const SELF_URL = "http://localhost:8787";
 

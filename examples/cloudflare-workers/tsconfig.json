@@ -21,7 +21,7 @@
     // Remix Image example only, do not include in your own code
     "references": [
       { "path": "../../packages/remix-image" },
-      { "path": "../../packages/remix-image-wasm" }
+      { "path": "../../packages/server-image-transformer-wasm" }
     ]
   }
 }
