@@ -1,6 +1,6 @@
 {
   "name": "server-image",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "Core server handler for image transformation",
   "authors": [
     "Josh McFarlin <josh@mcfarl.in>",
@@ -44,7 +44,7 @@
     "release": "dotenv release-it --"
   },
   "dependencies": {
-    "server-image-core": "^0.1.4",
+    "server-image-core": "^0.1.5",
     "mime-tree": "^0.1.4"
   },
   "devDependencies": {
