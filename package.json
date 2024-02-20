@@ -16,9 +16,6 @@
   },
   "workspaces": [
     "packages/server-image-core",
-    "packages/server-image",
-    "packages/server-image-remix",
-    "packages/server-image-react",
     "packages/server-image-cache-disk",
     "packages/server-image-cache-memory",
     "packages/server-image-loader-cloudflare",
@@ -30,7 +27,10 @@
     "packages/server-image-resolver-fs",
     "packages/server-image-transformer-pure",
     "packages/server-image-transformer-sharp",
-    "packages/server-image-transformer-wasm"
+    "packages/server-image-transformer-wasm",
+    "packages/server-image-react",
+    "packages/server-image",
+    "packages/server-image-remix"
   ],
   "scripts": {
     "build": "npm run build --workspaces",

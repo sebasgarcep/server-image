@@ -2,6 +2,8 @@ import "../index.css";
 
 import clsx from "clsx";
 import * as React from "react";
+import { serverImageLoader } from "server-image-loader-server";
+
 import { useResponsiveImage } from "../hooks";
 import { ImgElementWithDataProp, computePlaceholderSize, handleLoading } from "./helpers";
 import { ImageProps } from "./types";
@@ -12,7 +14,7 @@ export const Image = React.memo<ImageProps>(
       {
         src,
         loaderUrl = "/api/image",
-        loader,
+        loader = serverImageLoader,
         responsive = [],
         options = {},
         dprVariants = 1,

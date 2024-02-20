@@ -1,4 +1,5 @@
 import * as React from "react";
+import { serverImageLoader } from "server-image-loader-server";
 import { useResponsiveImage } from "../hooks";
 import { BaseImageProps } from "./types";
 
@@ -6,7 +7,7 @@ export const BaseImage = React.forwardRef<HTMLImageElement, BaseImageProps>(
   (
     {
       loaderUrl = "/api/image",
-      loader,
+      loader = serverImageLoader,
       responsive = [],
       options = {},
       dprVariants = 1,

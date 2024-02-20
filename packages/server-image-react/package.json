@@ -45,6 +45,7 @@
   },
   "dependencies": {
     "server-image-core": "^0.1.5",
+    "server-image-loader-server": "^0.1.5",
     "clsx": "^2.1.0"
   },
   "peerDependencies": {

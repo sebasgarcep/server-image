@@ -7,7 +7,7 @@ export type OnLoadingComplete = (result: { naturalWidth: number; naturalHeight: 
 
 export interface BaseImageProps extends React.ComponentPropsWithRef<"img"> {
   loaderUrl?: string;
-  loader: ClientLoader;
+  loader?: ClientLoader;
   responsive?: ResponsiveSize[];
   options?: SizelessOptions;
   dprVariants?: number | number[];

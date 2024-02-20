@@ -4,7 +4,7 @@ export interface HandlerConfig {
   /** The URL for this Remix server. */
   selfUrl: string;
   /** A resolver function that handles retrieving image assets. */
-  resolver: Resolver;
+  resolver?: Resolver;
   /** A transformer function that handles mutations of images. (optional) */
   transformer?: Transformer;
   /** The output mime type the image should fallback to if the provided output type is not supported. (optional, default MimeType.JPEG) */

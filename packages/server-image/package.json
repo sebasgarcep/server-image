@@ -40,11 +40,11 @@
     "lint": "eslint .",
     "typecheck": "tsc --noEmit",
     "test": "jest -c=../../jest.config.js --passWithNoTests",
-    "test:watch": "jest -c=../../jest.config.js --watch",
-    "release": "dotenv release-it --"
+    "test:watch": "jest -c=../../jest.config.js --watch"
   },
   "dependencies": {
     "server-image-core": "^0.1.5",
+    "server-image-resolver-fetch": "^0.1.5",
     "mime-tree": "^0.1.4"
   },
   "devDependencies": {

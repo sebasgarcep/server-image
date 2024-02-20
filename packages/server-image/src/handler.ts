@@ -1,12 +1,13 @@
 import mimeFromBuffer from "mime-tree";
 import { MimeType, RemixImageError, TransformOptions, UnsupportedImageError, parseURL } from "server-image-core";
+import { fetchResolver } from "server-image-resolver-fetch";
 import { ImageTransformationHandler } from "./types";
 
 export const imageTransformationHandler: ImageTransformationHandler = async (
   {
     selfUrl,
     cache = null,
-    resolver,
+    resolver = fetchResolver,
     transformer,
     fallbackFormat,
     fallbackTransformer,
