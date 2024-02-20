@@ -14,8 +14,8 @@ If you would like to use Web Assembly, follow the steps below:
 ## Install
 If you want to use a faster image transformer, install:
 ```bash
-npm install -S remix-image-wasm
-yarn add remix-image-wasm
+npm install -S server-image-transformer-wasm
+yarn add server-image-transformer-wasm
 ```
 
 ## Add To Your Loader Config
@@ -23,7 +23,7 @@ yarn add remix-image-wasm
 ```typescript jsx
 import type { LoaderFunction } from "remix";
 import { imageLoader, DiskCache, MemoryCache } from "remix-image/server";
-import { wasmTransformer } from "remix-image-wasm";
+import { wasmTransformer } from "server-image-transformer-wasm";
 
 const config = {
   selfUrl: "http://localhost:3000",
@@ -46,13 +46,13 @@ For an example project using Web Assembly, look at [this example](https://github
 Add the following lines to the bottom of your `wrangler.toml` file:
 ```
 [wasm_modules]
-JPEG_ENC_WASM = "node_modules/remix-image-wasm/jpeg_enc.wasm"
-JPEG_DEC_WASM = "node_modules/remix-image-wasm/jpeg_dec.wasm"
-PNG_WASM = "node_modules/remix-image-wasm/png.wasm"
-WEBP_ENC_WASM = "node_modules/remix-image-wasm/webp_enc.wasm"
-WEBP_DEC_WASM = "node_modules/remix-image-wasm/webp_dec.wasm"
-# AVIF_ENC_WASM = "node_modules/remix-image-wasm/avif_enc.wasm"    # uncomment for AVIF support
-# AVIF_DEC_WASM = "node_modules/remix-image-wasm/avif_dec.wasm"    # uncomment for AVIF support
+JPEG_ENC_WASM = "node_modules/server-image-transformer-wasm/jpeg_enc.wasm"
+JPEG_DEC_WASM = "node_modules/server-image-transformer-wasm/jpeg_dec.wasm"
+PNG_WASM = "node_modules/server-image-transformer-wasm/png.wasm"
+WEBP_ENC_WASM = "node_modules/server-image-transformer-wasm/webp_enc.wasm"
+WEBP_DEC_WASM = "node_modules/server-image-transformer-wasm/webp_dec.wasm"
+# AVIF_ENC_WASM = "node_modules/server-image-transformer-wasm/avif_enc.wasm"    # uncomment for AVIF support
+# AVIF_DEC_WASM = "node_modules/server-image-transformer-wasm/avif_dec.wasm"    # uncomment for AVIF support
 ```
 
 ### Reducing Bundle Size
@@ -88,9 +88,9 @@ And our `supportedOutputs` to be:
 Which we can do by setting the `[wasm_modules]` field in the `wrangler.toml` file to:
 ```
 [wasm_modules]
-PNG_WASM = "node_modules/remix-image-wasm/png.wasm"
-WEBP_ENC_WASM = "node_modules/remix-image-wasm/webp_enc.wasm"
-WEBP_DEC_WASM = "node_modules/remix-image-wasm/webp_dec.wasm"
+PNG_WASM = "node_modules/server-image-transformer-wasm/png.wasm"
+WEBP_ENC_WASM = "node_modules/server-image-transformer-wasm/webp_enc.wasm"
+WEBP_DEC_WASM = "node_modules/server-image-transformer-wasm/webp_dec.wasm"
 ```
 
 **Note**: `pureTransformer` does not include any support for WEBP inputs or outputs.

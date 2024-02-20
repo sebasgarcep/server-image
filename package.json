@@ -29,7 +29,8 @@
     "packages/server-image-resolver-fetch",
     "packages/server-image-resolver-fs",
     "packages/server-image-transformer-pure",
-    "packages/server-image-transformer-sharp"
+    "packages/server-image-transformer-sharp",
+    "packages/server-image-transformer-wasm"
   ],
   "scripts": {
     "build": "npm run build --workspaces",
